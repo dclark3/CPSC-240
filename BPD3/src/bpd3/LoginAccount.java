@@ -9,18 +9,33 @@ package bpd3;
  *
  * @author drado_000
  */
-public class LoginAccount {
-    String username;
+public class LoginAccount extends Person{
+    final String username;
     String password;
+    String email;
     
-    public LoginAccount(String u, String p){
-        username = u;
-        password = p;
+    public LoginAccount(String fName, String lName, String u, String p, String email){
+        super(fName, lName);
+        this.username = u;
+        this.password = p;
     }
+    
     public String getUsername(){
         return username;
     }
+    
     public String getPassword(){
         return password;
     }
+    
+    public String updatePassword(String pass){
+        this.password = pass;
+        return this.password;
+    }
+    
+    public String updateEmail(String email){
+        this.email = email;
+        return this.email;
+    }
+    
 }

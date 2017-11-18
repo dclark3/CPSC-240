@@ -41,39 +41,44 @@ public class FXMLDocumentController implements Initializable {
         String u = usernameField.getText();
         String p = passwordField.getText();
         
-        if (BPD3.admin.getAccount().getUsername().equals(u) || BPD3.admin.getAccount().getUsername().equals(u)){
+        LoginAccount la = BPD3.verifyUser(u, p);
+        
+        if (la == null){
+            errorMsg.setText("Username or password is incorrect");
+            errorMsg.getText();
+        }
+        
+        else if (la instanceof SysAdmin){
             Parent homePageParent = FXMLLoader.load(getClass().getResource("FXMLSysAdmin.fxml"));
             Scene homePageScene = new Scene(homePageParent);
             Stage projectStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             projectStage.setScene(homePageScene);
             projectStage.show();
         }
-        else if (BPD3.offMan.getAccount().getUsername().equals(u) || BPD3.offMan.getAccount().getUsername().equals(u)){
+        
+        else if (la instanceof OfficeMan){
             Parent homePageParent = FXMLLoader.load(getClass().getResource("FXMLOfficeMan.fxml"));
             Scene homePageScene = new Scene(homePageParent);
             Stage projectStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             projectStage.setScene(homePageScene);
             projectStage.show();
         }
-        else if (BPD3.wareMan.getAccount().getUsername().equals(u) || BPD3.wareMan.getAccount().getUsername().equals(u)){
+        
+        else if (la instanceof WarehouseMan){
             Parent homePageParent = FXMLLoader.load(getClass().getResource("FXMLWarehouseMan.fxml"));
             Scene homePageScene = new Scene(homePageParent);
             Stage projectStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             projectStage.setScene(homePageScene);
             projectStage.show();
         }
-        else if (BPD3.sa.getAccount().getUsername().equals(u) || BPD3.sa.getAccount().getUsername().equals(u)){
+        
+        else if (la instanceof SalesAssociate){
             Parent homePageParent = FXMLLoader.load(getClass().getResource("FXMLSalesAssociate.fxml"));
             Scene homePageScene = new Scene(homePageParent);
             Stage projectStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             projectStage.setScene(homePageScene);
             projectStage.show();
         }
-        else{
-            errorMsg.setText("Username or password is incorrect");
-            errorMsg.getText();
-        }
-        
     }
     
     @Override

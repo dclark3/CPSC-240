@@ -9,13 +9,9 @@ package bpd3;
  *
  * @author drado_000
  */
-public class WarehouseMan {
-    LoginAccount account;
+public class WarehouseMan extends LoginAccount{
     
-    public WarehouseMan(String username, String password){
-        account = new LoginAccount(username, password);
-    }
-    public LoginAccount getAccount(){
-        return account;
+    public WarehouseMan(String fName, String lName, String username, String password){
+        super(fName, lName, username, password);
     }
 }

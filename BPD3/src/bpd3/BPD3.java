@@ -5,6 +5,7 @@
  */
 package bpd3;
 
+import java.util.ArrayList;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +24,8 @@ public class BPD3 extends Application {
     public static OfficeMan offMan;
     public static WarehouseMan wareMan;
     public static SalesAssociate sa;
+    public static Fleet fleet;
+    public static ArrayList <LoginAccount> accounts = new ArrayList<>();
     
     
     @Override
@@ -40,12 +43,32 @@ public class BPD3 extends Application {
      */
     public static void main(String[] args) {
         
-        admin = new SysAdmin("abc", "def");
-        offMan = new OfficeMan("ghi", "jkl");
-        wareMan = new WarehouseMan("mno", "pqr");
-        sa = new SalesAssociate("stu", "vwx");
+        ArrayList <Warehouse> f = new ArrayList<>();
+        
+        Warehouse main = new Warehouse("mainWarehouse");
+        
+        fleet = new Fleet(f);
+        
+        admin = new SysAdmin("joe", "schmo", "abc", "def");
+        offMan = new OfficeMan("jane", "doe", "ghi", "jkl");
+        wareMan = new WarehouseMan("","", "mno", "pqr");
+        sa = new SalesAssociate("", "", "stu", "vwx");
+        
+        accounts.add(admin);
+        accounts.add(offMan);
+        accounts.add(wareMan);
+        accounts.add(sa);
         
         launch(args);
+    }
+    
+    public static LoginAccount verifyUser(String username, String password){
+        for (LoginAccount a: accounts){
+            if (a.getUsername().equals(username) && a.getPassword().equals(password)){
+                return a;
+            }
+        }
+        return null;
     }
     
 }

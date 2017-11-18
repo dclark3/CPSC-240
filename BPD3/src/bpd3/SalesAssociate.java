@@ -9,13 +9,9 @@ package bpd3;
  *
  * @author drado_000
  */
-public class SalesAssociate {
-    LoginAccount account;
+public class SalesAssociate extends LoginAccount {
     
-    public SalesAssociate(String username, String password){
-        account = new LoginAccount(username, password);
-    }
-    public LoginAccount getAccount(){
-        return account;
+    public SalesAssociate(String fName, String lName, String username, String password){
+        super(fName, lName, username, password);
     }
 }

@@ -9,13 +9,9 @@ package bpd3;
  *
  * @author drado_000
  */
-public class OfficeMan {
-    LoginAccount account;
+public class OfficeMan extends LoginAccount {
     
-    public OfficeMan(String username, String password){
-        account = new LoginAccount(username, password);
-    }
-    public LoginAccount getAccount(){
-        return account;
+    public OfficeMan(String fName, String lName, String username, String password){
+        super(fName, lName, username, password);
     }
 }
