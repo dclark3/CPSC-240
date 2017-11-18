@@ -129,8 +129,11 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="115.0" layoutY="68.0" />
-                        <TextField layoutX="115.0" layoutY="114.0" />
+                        <TextField fx:id="changefirstname" layoutX="115.0" layoutY="68.0" promptText="First Name" />
+                        <TextField fx:id="changelastname" layoutX="115.0" layoutY="114.0" promptText="Last Name" />
+                        <TextField fx:id="changeemail" layoutX="115.0" layoutY="177.0" promptText="Email" />
+                        <Button fx:id="changeuserinfo" layoutX="359.0" layoutY="127.0" mnemonicParsing="false" text="Change User Information" />
+                        <Label layoutX="101.0" layoutY="327.0" textFill="#1e47ee" />
                      </children>
                   </AnchorPane>
               </content>
