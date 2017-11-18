@@ -130,18 +130,15 @@ public class FXMLSysAdminController implements Initializable {
     
     
     
-    private void createOfficeManMethod(ActionEvent event) throws IOException {
+    private void checkusernameOfficeManMethod(ActionEvent event) throws IOException {
       String un = userOfficeMan.getText();
        if (un =  ) {
            OfficeManlabel.setText("Sorry, user already exists");
            OfficeManlabel.getText();
        }
-      
-      else {
-           
-              
-              }
-      
+    }
+    private void createWHManagerMethod(ActionEvent event) throws IOException {
+        String un = 
     }
     /**
      * Initializes the controller class.

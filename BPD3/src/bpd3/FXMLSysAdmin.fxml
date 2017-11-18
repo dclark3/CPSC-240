@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="415.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bpd3.FXMLSysAdminController">
+<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bpd3.FXMLSysAdminController">
     
 <children>
       <Label layoutX="368.0" layoutY="14.0" prefHeight="25.0" prefWidth="159.0" text="System Administrator ">
@@ -19,11 +19,11 @@
          </font>
       </Label>
       <Button fx:id="logOutButton" layoutX="535.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOutButtonMethod" text="Save and Log Out" />
-      <TabPane layoutX="9.0" layoutY="40.0" prefHeight="374.0" prefWidth="642.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="9.0" layoutY="48.0" prefHeight="407.0" prefWidth="748.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Add Office Manager">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="276.0" prefWidth="553.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="392.0" prefWidth="678.0">
                      <children>
                         <TextField fx:id="userOfficeMan" layoutX="137.0" layoutY="67.0" promptText="Username" />
                         <Button fx:id="checkOfficeMan" layoutX="301.0" layoutY="67.0" mnemonicParsing="false" text="Check Username" />
@@ -95,17 +95,15 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Change Password">
+            <Tab text="Reset User Passwords">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Text layoutX="152.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter New Password" />
                         <TextField fx:id="changepassUser" layoutX="131.0" layoutY="49.0" promptText="Username" />
                         <Text layoutX="131.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter user you want to change" />
-                        <Text layoutX="144.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Current Password" />
                         <Button fx:id="changepass" layoutX="321.0" layoutY="206.0" mnemonicParsing="false" text="Change Password" />
                         <Label fx:id="changepasslabel" layoutX="165.0" layoutY="285.0" textFill="#1e47ee" />
-                        <PasswordField fx:id="currentpass" layoutX="131.0" layoutY="111.0" promptText="Current Password" />
                         <PasswordField fx:id="newpass" layoutX="132.0" layoutY="173.0" promptText="New Password" />
                         <PasswordField fx:id="confirmnewpass" layoutX="131.0" layoutY="218.0" promptText="Confirm Password" />
                      </children>
@@ -114,7 +112,7 @@
             </Tab>
             <Tab text="Delete User">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="331.0" prefWidth="615.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="393.0" prefWidth="750.0">
                      <children>
                         <TextField fx:id="deleteuser" layoutX="55.0" layoutY="61.0" promptText="Username" />
                         <Button fx:id="confirmdeleteuser" layoutX="243.0" layoutY="131.0" mnemonicParsing="false" text="Delete User" />
@@ -123,6 +121,16 @@
                         <Label fx:id="deleteuserlabel" layoutX="130.0" layoutY="244.0" textFill="#1e47ee" />
                         <PasswordField fx:id="systemadminpass" layoutX="56.0" layoutY="119.0" promptText="Password" />
                         <PasswordField fx:id="confirmsystemadminpass" layoutX="55.0" layoutY="160.0" promptText="Re-enter Password" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Change User Info">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="115.0" layoutY="68.0" />
+                        <TextField layoutX="115.0" layoutY="114.0" />
                      </children>
                   </AnchorPane>
               </content>
