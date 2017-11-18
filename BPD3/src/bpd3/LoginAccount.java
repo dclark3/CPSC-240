@@ -18,6 +18,7 @@ public class LoginAccount extends Person{
         super(fName, lName);
         this.username = u;
         this.password = p;
+        this.email = email;
     }
     
     public String getUsername(){
@@ -26,6 +27,10 @@ public class LoginAccount extends Person{
     
     public String getPassword(){
         return password;
+    }
+    
+    public String getEmail(){
+        return email;
     }
     
     public String updatePassword(String pass){

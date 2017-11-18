@@ -11,7 +11,7 @@ package bpd3;
  */
 public class SalesAssociate extends LoginAccount {
     
-    public SalesAssociate(String fName, String lName, String username, String password){
-        super(fName, lName, username, password);
+    public SalesAssociate(String fName, String lName, String username, String password, String email){
+        super(fName, lName, username, password, email);
     }
 }

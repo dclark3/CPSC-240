@@ -11,7 +11,7 @@ package bpd3;
  */
 public class OfficeMan extends LoginAccount {
     
-    public OfficeMan(String fName, String lName, String username, String password){
-        super(fName, lName, username, password);
+    public OfficeMan(String fName, String lName, String username, String password, String email){
+        super(fName, lName, username, password, email);
     }
 }
