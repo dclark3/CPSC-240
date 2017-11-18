@@ -103,8 +103,6 @@ public class FXMLSysAdminController implements Initializable {
     @FXML
     private Label changepasslabel;
     @FXML
-    private PasswordField currentpass;
-    @FXML
     private PasswordField newpass;
     @FXML
     private PasswordField confirmnewpass;
@@ -118,6 +116,14 @@ public class FXMLSysAdminController implements Initializable {
     private PasswordField systemadminpass;
     @FXML
     private PasswordField confirmsystemadminpass;
+    @FXML
+    private TextField changefirstname;
+    @FXML
+    private TextField changelastname;
+    @FXML
+    private TextField changeemail;
+    @FXML
+    private Button changeuserinfo;
     
     @FXML
     private void logOutButtonMethod(ActionEvent event) throws IOException {
