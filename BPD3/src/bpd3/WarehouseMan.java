@@ -11,7 +11,7 @@ package bpd3;
  */
 public class WarehouseMan extends LoginAccount{
     
-    public WarehouseMan(String fName, String lName, String username, String password){
-        super(fName, lName, username, password);
+    public WarehouseMan(String fName, String lName, String username, String password, String email){
+        super(fName, lName, username, password, email);
     }
 }

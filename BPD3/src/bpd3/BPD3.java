@@ -49,10 +49,10 @@ public class BPD3 extends Application {
         
         fleet = new Fleet(f);
         
-        admin = new SysAdmin("joe", "schmo", "abc", "def");
-        offMan = new OfficeMan("jane", "doe", "ghi", "jkl");
-        wareMan = new WarehouseMan("","", "mno", "pqr");
-        sa = new SalesAssociate("", "", "stu", "vwx");
+        admin = new SysAdmin("joe", "schmo", "abc", "def", "email");
+        offMan = new OfficeMan("jane", "doe", "ghi", "jkl", "email");
+        wareMan = new WarehouseMan("","", "mno", "pqr", "email");
+        sa = new SalesAssociate("", "", "stu", "vwx", "email");
         
         accounts.add(admin);
         accounts.add(offMan);

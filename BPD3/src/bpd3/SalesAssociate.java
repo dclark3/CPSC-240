@@ -10,8 +10,37 @@ package bpd3;
  * @author drado_000
  */
 public class SalesAssociate extends LoginAccount {
+    String name;
+    Warehouse wh; 
     
-    public SalesAssociate(String fName, String lName, String username, String password){
-        super(fName, lName, username, password);
+    public SalesAssociate(String fName, String lName, String username, String password, String email, String name, Warehouse wh){
+        super(fName, lName, username, password, email);
+        this.name=name;
+        this.wh=wh; 
     }
+    
+    public Warehouse getWarehouse()
+    {
+        return wh; 
+    }
+    
+    public String getName()
+    {
+        return name; 
+    }
+    
+    
+    
+    
+    
+    public void SalesInvoice(String name, int num)
+    {
+        
+    }
+    
+    public void SortNameVan()
+    {
+    }
+    
+        
 }
