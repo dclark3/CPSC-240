@@ -24,8 +24,11 @@ public class BPD3 extends Application {
     public static OfficeMan offMan;
     public static WarehouseMan wareMan;
     public static SalesAssociate sa;
+    public static Warehouse mainWarehouse;
     public static Fleet fleet;
     public static ArrayList <LoginAccount> accounts = new ArrayList<>();
+    public static int minQuantity;
+    public static Command cmd;
     
     
     @Override
@@ -45,19 +48,30 @@ public class BPD3 extends Application {
         
         ArrayList <Warehouse> f = new ArrayList<>();
         
-        Warehouse main = new Warehouse("mainWarehouse");
+        mainWarehouse = new Warehouse("mainWarehouse");
+        Warehouse van = new Warehouse("van");
         
         fleet = new Fleet(f);
         
         admin = new SysAdmin("joe", "schmo", "abc", "def", "email");
         offMan = new OfficeMan("jane", "doe", "ghi", "jkl", "email");
         wareMan = new WarehouseMan("","", "mno", "pqr", "email");
-        sa = new SalesAssociate("", "", "stu", "vwx", "email");
+        sa = new SalesAssociate("", "", "stu", "vwx", "email", "whName", van);
         
         accounts.add(admin);
         accounts.add(offMan);
         accounts.add(wareMan);
         accounts.add(sa);
+        
+        minQuantity = 5;
+        cmd = new Command();
+        
+        Inventory b1 = new Inventory("saddle", 12345, 4.99, 2.99, true, 6);
+        Inventory b2 = new Inventory("peddle", 12343, 14.99, 12.99, false, 9);
+        
+        mainWarehouse.addPart(b1);
+        mainWarehouse.addPart(b2);
+        
         
         launch(args);
     }

@@ -92,6 +92,59 @@ public class FileStuff {
         }
     }
     
+    public static String moveParts(String fileName){
+        
+        try{
+            File file = new File(fileName);
+            Scanner fileIn = new Scanner(file);
+            
+            String names = fileIn.nextLine();
+            String [] ss = names.split(",");
+            Warehouse fromW = BPD3.fleet.findWarehouse(ss[0]);
+            Warehouse toW = BPD3.fleet.findWarehouse(ss[1]);
+            
+            if (fromW != null && toW != null){
+                String [] parts;
+                Inventory part1 = null;
+                Inventory part2 = null;
+                            
+                while (fileIn.hasNext()){
+                    String s = fileIn.nextLine();
+                    parts = s.split(",");
+                    part1 = fromW.findPart(parts[0]);
+                    part2 = toW.findPart(parts[0]);
+                    
+                    if (part1 !=null && part2 == null){
+                        int q = Integer.parseInt(parts[1]);
+                        Inventory part = new Inventory(part1.getName(),
+                                                       part1.getNumber(),
+                                                       part1.getlistPrice(),
+                                                       part1.getsalePrice(),
+                                                       part1.getonSale(),
+                                                       part1.updateQ(q));
+                        toW.addPart(part);
+                        part1.subtractQ(q);
+                        
+                    }
+                    else if (part1 != null && part2 != null){
+                        int q = Integer.parseInt(parts[1]);
+                        part1.subtractQ(q);
+                        part2.addQ(q);
+                    }
+                }
+                if (part1 == null && part2 == null){
+                    return "error";
+                }
+                return "parts sucessfully moved";
+            }
+            return "warehouses could not be found"; 
+        }
+        catch (FileNotFoundException ex){
+            ex.printStackTrace();
+            return fileName + " could not be found";
+        }
+    }
+    
     public static void writeWarehouseToFile(Warehouse w){
         try{
             String fileName = w.getFileName();
@@ -110,11 +163,11 @@ public class FileStuff {
         }
     }
     
-    public static void writeEverythingToFile(Fleet fleet){
+    public static void writeEverythingToFile(){
         try{    
             FileWriter file1 = new FileWriter("fleet.txt");
             BufferedWriter bufferedWriter1 = new BufferedWriter(file1);
-            ArrayList <Warehouse> warehouses = fleet.getFleet();
+            ArrayList <Warehouse> warehouses = BPD3.fleet.getFleet();
             
             for (Warehouse w : warehouses){
                 writeWarehouseToFile(w);

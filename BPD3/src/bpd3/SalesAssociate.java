@@ -13,7 +13,14 @@ public class SalesAssociate extends LoginAccount {
     String name;
     Warehouse wh; 
     
-    public SalesAssociate(String fName, String lName, String username, String password, String email, String name, Warehouse wh){
+    public SalesAssociate(String fName, 
+                          String lName,
+                          String username, 
+                          String password, 
+                          String email, 
+                          String name, 
+                          Warehouse wh){
+        
         super(fName, lName, username, password, email);
         this.name=name;
         this.wh=wh; 
