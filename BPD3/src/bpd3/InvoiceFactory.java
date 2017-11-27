@@ -16,6 +16,7 @@ public class InvoiceFactory
     private static ArrayList<Invoice> invoiceArray;
     private int invoiceNumber; 
     private static int counter = 0;
+    
     private InvoiceFactory (int invoiceStartNunber)
     {
         invoiceArray = new ArrayList<>();  
