@@ -36,11 +36,14 @@ public class Invoice
     }
     
     //need to decrease the quantity in the sales associate warehouse
-    public void addPart(int partNumber, int quantity)
+    public String addSinglePart(int partNum, int quantity)
     {
         Warehouse wh = sa.getWarehouse();
-        BikePart bp = wh.findPart(partNumber); 
+        BikePart bp = wh.findPart(partNum); 
         Inventory inv = new Inventory(bp.getName(), bp.getNumber(), bp.getlistPrice(), bp.getsalePrice(), bp.getonSale(), quantity); 
         inven.add(inv); 
+        return "part added"; 
     }
+    
+    
 }

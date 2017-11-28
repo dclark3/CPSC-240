@@ -56,6 +56,11 @@ public class Warehouse {
         return "part successfully added";
     }
     
+    public int getSize()
+    {
+        return inven.size(); 
+    }
+    
     @Override
     public String toString(){
         String part = "";
