@@ -6,10 +6,9 @@
 package bpd3;
 
 import java.util.ArrayList;
-import java.util.*;
 /**
  *
- * @author drado_000
+ * @author dan
  */
 public class SalesAssociate extends LoginAccount {
     String name;
@@ -42,55 +41,50 @@ public class SalesAssociate extends LoginAccount {
         return name; 
     }
     
+    
     //this is how the sales assocaite will add parts to its van from main
-    public String updateMain(String filename) //need to decrease from main
+    public String updateVan(String filename, Warehouse ware) //need to decrease from main @@@@@@@@@
     {
-        String output = "Error";
-        ArrayList<Inventory> input = new ArrayList<>();
-        
-        if (input.size() > 0)
+        String output = ""; 
+        ArrayList<Inventory> inven = FileStuff.warehouseRead(filename);
+        if (inven.size() > 0 && inven != null)
         {
-           for (int i =0; i<input.size(); i++)
-            {
-                wh.addPart(input.get(i)); 
-            } 
-           output = "parts added"; 
+            for (int i = 0; i < ware.getInventory().size(); i++){
+                for (int j = 0; j < inven.size(); j++){
+                    if (ware.getInventory().get(i).getName().equals(inven.get(j).getName()))
+                    {  
+                        wh.addPart(ware.getInventory().get(i)); 
+                        ware.getInventory().get(i).subtractQ(inven.get(j).getQuantity());  //need to make sure this actually decreases the quantity from teh correct warehouse
+                    }
+                }
+            }
+            output = "parts added"; 
+        }
+        else
+        {
+            output = "failure"; 
         }
         return output;
     }
     
-    //this is where the sales assocaite will add parts to its van from another van
-    //look at moveParts method
-    public String updateVan(String filename, String vanName) //need to decrease from other van
-    {
-        String output = "Error"; 
-        //Warehouse sa = Fleet.findWarehouse(vanName);   ask this as a question tomorrow
-        
-        ArrayList<Inventory> input = new ArrayList<>(); 
-        
-        if (input.size() > 0)
-        {
-           for (int i =0; i<input.size(); i++)
-            {
-                wh.addPart(input.get(i)); 
-            } 
-           output = "parts added"; 
-        }
-        return output;     
-    }
-    
+    //dont forget that we need to be able to search through the invoices between certain dates
     //this creates the invoice
     public Invoice CreateSalesInvoice()
-    {
-        Invoice inv = invoiceFac.createInvoice();   
-        this.invoice=inv; 
-        return inv; 
+    {        
+        this.invoice =invoiceFac.createInvoice();  
+        return invoice; 
     }
     
-    //this would be adding parts to the invoice
-    public String addPart(int partNum, int quantity)
+    
+    //good example of decreasing the inventory
+    public String addPartToInvoice(int partNum, int quantity)
     {     
-        String output = invoice.addSinglePart(partNum, quantity); 
+        String output = invoice.addSinglePart(partNum, quantity);
+        Inventory in = wh.findPart(partNum);
+        if (in != null)
+        {
+            in.subtractQ(quantity);
+        }
         return output; 
     }
     

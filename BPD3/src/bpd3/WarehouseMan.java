@@ -6,10 +6,11 @@
 package bpd3;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
- * @author drado_000
+ * @author dan
  */
 public class WarehouseMan extends LoginAccount{
     
@@ -17,16 +18,15 @@ public class WarehouseMan extends LoginAccount{
         super(fName, lName, username, password, email);
     }
     
+    /* this needs to be updating the mainwarehouse
     public String updateInventory(String filename)
     {
-        FileStuff fs = new FileStuff(); 
-        ArrayList<Inventory> inven = fs.warehouseRead(filename);
-        //add a line to put inven into the main warehouse
+        FileStuff.readFile(filename); 
         return "Inventory Updated"; 
     }
-    
+    */
     //need to make it if the part is already in the warehouse just update the information
-    /*
+    
     public String enter(String[] s)
     {
         String output = "part added"; 
@@ -36,9 +36,9 @@ public class WarehouseMan extends LoginAccount{
                         Double.parseDouble(s[3]), 
                         Boolean.parseBoolean(s[4]),
                         Integer.parseInt(s[5]));
-        for (int i = 0; i < "mainwarehouse"; i++)
+        for (int i = 0; i < BPD3.mainWarehouse.getSize(); i++)
         {
-            if ("main warehouse part number" == s[1])
+            if (BPD3.mainWarehouse.getInventory().get(i).getName() == null ? s[1] == null : BPD3.mainWarehouse.getInventory().get(i).getName().equals(s[1]))
             {
                 //mainwarehouse part using the setters
             }
@@ -47,30 +47,18 @@ public class WarehouseMan extends LoginAccount{
         return output;
     }
     
+    //put display into the controller look at officeman
     
-    //need to be able to enter either a string or int
-    /see what my group thinks
-    public ArrayList<String> display(int input)
+    
+    
+    /*
+    //i should use collections.sort for these because i think that means we implement the strategy pattern.
+    public ArrayList<Inventory> sortName()
     {
-        ArrayList<String> output = new ArrayList<>(); 
-        for (Inventory inven : "mainwarehouse")
-        {
-            if ("mainwarehouse number" == input)
-            {
-                output.add("mainwarehouse inventory"); 
-            }
-        }
-        
-        return output; 
+        //Collections.sort(BPD3.mainWarehouse.getInventory());        
+        //return BPD3.mainWarehouse.getInventory();
     }
-    */ 
-    
-    public ArrayList<String> sortName()
-    {
-        ArrayList<String> output = new ArrayList<>();    
-        return output;
-    }
-    
+    */
     public ArrayList<String> sortNumber()
     {
         ArrayList<String> output = new ArrayList<>(); 

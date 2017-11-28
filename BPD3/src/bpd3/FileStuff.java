@@ -19,6 +19,7 @@ import java.util.Scanner;
  */
 public class FileStuff {
     
+    //this is for making a new warehouse
     public static ArrayList<Inventory> warehouseRead (String filename){
         ArrayList<Inventory> output = new ArrayList<>();
         
@@ -48,6 +49,7 @@ public class FileStuff {
         return output;
     }
     
+    //this is for reading in and updating inventory
     public static String readFile(ArrayList <Inventory> inventory, String file){
         try{
             File fileIn = new File(file);
