@@ -7,6 +7,7 @@ package bpd3;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -51,14 +52,22 @@ public class WarehouseMan extends LoginAccount{
     
     
     
-    /*
+    
     //i should use collections.sort for these because i think that means we implement the strategy pattern.
     public ArrayList<Inventory> sortName()
     {
-        //Collections.sort(BPD3.mainWarehouse.getInventory());        
-        //return BPD3.mainWarehouse.getInventory();
+        Comparator<Inventory> partsToComp = new PartCompareByName();
+        Collections.sort(BPD3.mainWarehouse.getInventory(), partsToComp);        
+        return BPD3.mainWarehouse.getInventory();
     }
-    */
+    
+    public ArrayList<Inventory> sortNum()
+    {
+        Comparator<Inventory> partsToComp = new PartCompareByNum();
+        Collections.sort(BPD3.mainWarehouse.getInventory(), partsToComp);        
+        return BPD3.mainWarehouse.getInventory();
+    }
+    
     public ArrayList<String> sortNumber()
     {
         ArrayList<String> output = new ArrayList<>(); 
