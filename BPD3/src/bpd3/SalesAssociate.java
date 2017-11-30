@@ -10,6 +10,12 @@ import java.util.ArrayList;
  *
  * @author dan
  */
+
+/**
+ * Sales associate still needs to decrease the inventory from whatever warehouse is came from when it sells an item
+ * also need to make it possible to search between invoices by date
+ * @author Dan
+ */
 public class SalesAssociate extends LoginAccount {
     String name;
     Warehouse wh; 
@@ -43,6 +49,7 @@ public class SalesAssociate extends LoginAccount {
     
     
     //this is how the sales assocaite will add parts to its van from main
+    //possible solution is just to make 2 methods to do this
     public String updateVan(String filename, Warehouse ware) //need to decrease from main @@@@@@@@@
     {
         String output = ""; 

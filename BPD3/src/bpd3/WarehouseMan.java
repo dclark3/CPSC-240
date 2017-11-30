@@ -19,29 +19,41 @@ public class WarehouseMan extends LoginAccount{
         super(fName, lName, username, password, email);
     }
     
-    /* this needs to be updating the mainwarehouse
+    
+    //this method needs to update the mainwarehouse from a text file.
+    //someone needs to check if this works also makes sure this will update part information
     public String updateInventory(String filename)
     {
-        FileStuff.readFile(filename); 
+        FileStuff.readFile(BPD3.mainWarehouse.getInventory(), filename);  
         return "Inventory Updated"; 
     }
-    */
-    //need to make it if the part is already in the warehouse just update the information
+   
     
     public String enter(String[] s)
     {
-        String output = "part added"; 
-        Inventory inven = new Inventory(s[0], 
-                        Integer.parseInt(s[1]), 
-                        Double.parseDouble(s[2]), 
-                        Double.parseDouble(s[3]), 
-                        Boolean.parseBoolean(s[4]),
-                        Integer.parseInt(s[5]));
+        String output = "initital output"; 
+        Inventory inven = new Inventory(s[0],  //name 
+                        Integer.parseInt(s[1]),  //number 
+                        Double.parseDouble(s[2]), //list price
+                        Double.parseDouble(s[3]),  //sale price
+                        Boolean.parseBoolean(s[4]), //on sale
+                        Integer.parseInt(s[5])); //quantity
         for (int i = 0; i < BPD3.mainWarehouse.getSize(); i++)
         {
             if (BPD3.mainWarehouse.getInventory().get(i).getName() == null ? s[1] == null : BPD3.mainWarehouse.getInventory().get(i).getName().equals(s[1]))
             {
-                //mainwarehouse part using the setters
+                //this will update the part if its already in the main warehouse
+                BPD3.mainWarehouse.getInventory().get(i).setlistPrice(inven.getlistPrice()); 
+                BPD3.mainWarehouse.getInventory().get(i).setsalePrice(inven.getsalePrice()); 
+                BPD3.mainWarehouse.getInventory().get(i).setonSale(inven.getonSale());
+                BPD3.mainWarehouse.getInventory().get(i).addQ(inven.getQuantity()); 
+                output = "part updated"; 
+            }
+            else
+            {
+                //this will just add the part
+                BPD3.mainWarehouse.addPart(inven); 
+                output = "part added"; 
             }
         }
         
@@ -49,11 +61,7 @@ public class WarehouseMan extends LoginAccount{
     }
     
     //put display into the controller look at officeman
-    
-    
-    
-    
-    //i should use collections.sort for these because i think that means we implement the strategy pattern.
+
     public ArrayList<Inventory> sortName()
     {
         Comparator<Inventory> partsToComp = new PartCompareByName();
