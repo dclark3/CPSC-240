@@ -67,10 +67,4 @@ public class WarehouseMan extends LoginAccount{
         Collections.sort(BPD3.mainWarehouse.getInventory(), partsToComp);        
         return BPD3.mainWarehouse.getInventory();
     }
-    
-    public ArrayList<String> sortNumber()
-    {
-        ArrayList<String> output = new ArrayList<>(); 
-        return output;
-    }
 }
