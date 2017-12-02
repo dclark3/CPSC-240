@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author drado_000
+ * @author christina
  */
 public class FXMLSysAdminController implements Initializable {
 
@@ -125,6 +125,7 @@ public class FXMLSysAdminController implements Initializable {
     @FXML
     private Button changeuserinfo;
     
+    
     @FXML
     private void logOutButtonMethod(ActionEvent event) throws IOException {
         Parent homePageParent = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
@@ -136,19 +137,105 @@ public class FXMLSysAdminController implements Initializable {
     
     
     
-    private void checkusernameOfficeManMethod(ActionEvent event) throws IOException {
-      String un = userOfficeMan.getText();
-//       if (un =  ) {
-//           OfficeManlabel.setText("Sorry, user already exists");
-//           OfficeManlabel.getText();
-//       }
+    private void checkOfficeMan(ActionEvent event) throws IOException {
+      String oun = userOfficeMan.getText();
+      if (oun.equals(BPD3.offMan.getFName())) {
+          OfficeManlabel.setText("Sorry, user already exists");
+           }
+      else {
+          OfficeManlabel.setText("Name available");
+    } }
+ private void createOfficeMan(ActionEvent event) {
+     String opw = passOfficeMan.getText();
+     String confirmopw = confirmpassOfficeMan.getText();
+     if (opw.equals(confirmopw)) {
+         String oemail = emailOfficeMan.getText();
+         String ofname = firstnameOfficeMan.getText();
+         String olname = lastnameOfficeMan.getText();
+     }
+     else {
+         createOfficeManlabel.setText("Passwords do not match!");
+             
+     } 
+}
+ private void checkWHman(ActionEvent event) throws IOException {
+      String whun = userWHman.getText();
+      if (whun.equals(BPD3.wareMan.getFName())) {
+          WHmanuserlabel.setText("Sorry, user already exists");
+           }
+      else {
+          WHmanuserlabel.setText("Name available");
+    } }
+  private void createWHman(ActionEvent event) {
+     String whpw = passWHman.getText();
+     String confirmwhpw = confirmpassWHman.getText();
+     if (whpw.equals(confirmwhpw)) {
+         String whemail = emailWHman.getText();
+         String whfname = firstnameWHman.getText();
+         String whlname = lastnameWHman.getText();
+         createWHmanlabel.setText("New Warehouse Manager Created!");
+     }
+     else {
+         createWHmanlabel.setText("Passwords do not match!");
+         
+   
+     } 
+}
+  private void checkSA(ActionEvent event) throws IOException {
+      String saun = userSA.getText();
+      if (saun.equals(BPD3.sa.getFName())) {
+          SAlabel.setText("Sorry, user already exists");
+           }
+      else {
+          SAlabel.setText("Name available");
+    } }
+  
+  private void checkSV(ActionEvent event) throws IOException {
+      String SV = SVname.getText();
+      if (SV.equals(BPD3.sa.getFName())) {
+          SVlabel.setText("Sorry, van already exists");
+           }
+      else {
+          SVlabel.setText("Name available");
+    } }  
+  private void createSA(ActionEvent event) {
+     String sapw = passSA.getText();
+     String confirmsapw = confirmpassSA.getText();
+     if (sapw.equals(confirmsapw)) {
+         String saemail = emailSA.getText();
+         String safname = firstnameSA.getText();
+         String salname = lastnameSA.getText();
+         createSAlabel.setText("New Sales Associate Created!");
+     }
+     else {
+         createSAlabel.setText("Passwords do not match!");
+         
+   
+     } 
+}
+  private void changePass() {
+      String user = changepassUser.getText();
+      String newpw = newpass.getText();
+      String confirmnewpw = confirmnewpass.getText();
+      if (newpw.equals(confirmnewpw)) {
+      changepasslabel.setText("Change of password successful!");
+  }
+      else {
+       changepasslabel.setText("Passwords do not match!");   
+      }
+  }
+private void changeuserinfo(ActionEvent event) {
+        
+        String fName = changefirstname.getText();
+        String lName = changelastname.getText();
+        String email = changeemail.getText();
+        
+        BPD3.admin.updateFName(fName);
+        BPD3.admin.updateLName(lName);
+        BPD3.admin.updateEmail(email);
+          
     }
-    private void createWHManagerMethod(ActionEvent event) throws IOException {
-       //String un = 
-    }
-    /**
-     * Initializes the controller class.
-     */
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
