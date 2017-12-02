@@ -24,9 +24,9 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0" prefWidth="322.0">
                      <children>
-                        <Button layoutX="423.0" layoutY="59.0" mnemonicParsing="false" text="Submit" />
-                        <TextField layoutX="213.0" layoutY="59.0" />
-                        <TextArea layoutX="132.0" layoutY="106.0" prefHeight="200.0" prefWidth="310.0" />
+                        <Button fx:id="MainSubmitButton" layoutX="423.0" layoutY="59.0" mnemonicParsing="false" onAction="#MainSubmitButtonAction" text="Submit" />
+                        <TextField fx:id="MainTextField" layoutX="213.0" layoutY="59.0" />
+                        <TextArea fx:id="MainTextArea" layoutX="132.0" layoutY="106.0" prefHeight="200.0" prefWidth="310.0" />
                         <Label layoutX="88.0" layoutY="63.0" prefHeight="18.0" prefWidth="118.0" text="Enter a filename:" />
                      </children>
                   </AnchorPane>
@@ -36,24 +36,45 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0" prefWidth="322.0">
                      <children>
-                        <Label layoutX="33.0" layoutY="21.0" text="Label" />
-                        <Label layoutX="33.0" layoutY="56.0" text="Label" />
-                        <Label layoutX="33.0" layoutY="95.0" text="Label" />
-                        <Label layoutX="33.0" layoutY="139.0" text="Label" />
-                        <Label layoutX="33.0" layoutY="189.0" text="Label" />
-                        <Label layoutX="33.0" layoutY="232.0" text="Label" />
+                        <Label layoutX="33.0" layoutY="21.0" prefHeight="18.0" prefWidth="124.0" text="Enter a part name:" />
+                        <Label layoutX="33.0" layoutY="56.0" text="Enter a part number:" />
+                        <Label layoutX="33.0" layoutY="95.0" text="Enter the list price:" />
+                        <Label layoutX="33.0" layoutY="139.0" text="Enter the sale price:" />
+                        <Label layoutX="33.0" layoutY="189.0" text="Enter whether its on sale:" />
+                        <Label layoutX="33.0" layoutY="232.0" text="Enter the quantity:" />
+                        <TextField fx:id="PartNameField" layoutX="197.0" layoutY="17.0" prefHeight="26.0" prefWidth="482.0" />
+                        <TextField fx:id="PartNumberField" layoutX="197.0" layoutY="52.0" prefHeight="26.0" prefWidth="481.0" />
+                        <TextField fx:id="ListPriceField" layoutX="197.0" layoutY="91.0" prefHeight="26.0" prefWidth="480.0" />
+                        <TextField fx:id="SalePriceField" layoutX="198.0" layoutY="134.0" prefHeight="26.0" prefWidth="478.0" />
+                        <TextField fx:id="OnSaleField" layoutX="197.0" layoutY="185.0" prefHeight="26.0" prefWidth="476.0" />
+                        <TextField fx:id="QuantityField" layoutX="197.0" layoutY="228.0" prefHeight="26.0" prefWidth="476.0" />
+                        <Button fx:id="EnterSubmitButton" layoutX="694.0" layoutY="228.0" mnemonicParsing="false" onAction="#EnterSubmitButtonAction" text="Done" />
+                        <TextArea fx:id="EnterTextArea" layoutX="26.0" layoutY="274.0" prefHeight="122.0" prefWidth="714.0" />
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Display Part">
+            <Tab fx:id="PartField" text="Display Part">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="DisplayPartNameField" layoutX="208.0" layoutY="10.0" prefHeight="26.0" prefWidth="342.0" />
+                        <TextArea fx:id="DisplayArea" layoutX="48.0" layoutY="81.0" prefHeight="293.0" prefWidth="663.0" />
+                        <Button fx:id="DisplayNameButton" layoutX="567.0" layoutY="10.0" mnemonicParsing="false" onAction="#DisplayNameButtonAction" text="Display" />
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="166.0" text="Enter a part name:" />
+                        <Label layoutX="14.0" layoutY="50.0" prefHeight="18.0" prefWidth="166.0" text="Enter a part number:" />
+                        <TextField fx:id="DisplayPartNumField" layoutX="208.0" layoutY="47.0" prefHeight="26.0" prefWidth="340.0" />
+                        <Button fx:id="DisplayNumButton" layoutX="568.0" layoutY="47.0" mnemonicParsing="false" onAction="#DisplayNumButtonAction" text="Display" />
+                     </children></AnchorPane>
                </content>
             </Tab>
             <Tab text="Sort by Name">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="SortNameTextArea" layoutX="42.0" layoutY="56.0" prefHeight="314.0" prefWidth="678.0" />
+                        <Button fx:id="SortNameButton" layoutX="333.0" layoutY="14.0" mnemonicParsing="false" onAction="#SortNameButtonAction" text="Sort" />
+                     </children></AnchorPane>
                </content>
             </Tab>
             <Tab text="Sort by Number">
@@ -61,6 +82,8 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <ButtonBar layoutX="155.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" />
+                        <Button fx:id="SortNumButton" layoutX="336.0" layoutY="14.0" mnemonicParsing="false" onAction="#SortNumButtonAction" text="Sort" />
+                        <TextArea fx:id="SortNumTextArea" layoutX="46.0" layoutY="54.0" prefHeight="324.0" prefWidth="674.0" />
                      </children>
                   </AnchorPane>
                </content>
