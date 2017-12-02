@@ -22,14 +22,14 @@ public class WarehouseMan extends LoginAccount{
     
     //this method needs to update the mainwarehouse from a text file.
     //someone needs to check if this works also makes sure this will update part information
-    public String updateInventory(String filename)
+    public static String updateInventory(String filename)
     {
-        FileStuff.readFile(BPD3.mainWarehouse.getInventory(), filename);  
-        return "Inventory Updated"; 
+        String output = FileStuff.readFile(BPD3.mainWarehouse.getInventory(), filename);  
+        return output; 
     }
    
     
-    public String enter(String[] s)
+    public static String enter(String[] s)
     {
         String output = "initital output"; 
         Inventory inven = new Inventory(s[0],  //name 
@@ -62,14 +62,14 @@ public class WarehouseMan extends LoginAccount{
     
     //put display into the controller look at officeman
 
-    public ArrayList<Inventory> sortName()
+    public static ArrayList<Inventory> sortName()
     {
         Comparator<Inventory> partsToComp = new PartCompareByName();
         Collections.sort(BPD3.mainWarehouse.getInventory(), partsToComp);        
         return BPD3.mainWarehouse.getInventory();
     }
     
-    public ArrayList<Inventory> sortNum()
+    public static ArrayList<Inventory> sortNum()
     {
         Comparator<Inventory> partsToComp = new PartCompareByNum();
         Collections.sort(BPD3.mainWarehouse.getInventory(), partsToComp);        
