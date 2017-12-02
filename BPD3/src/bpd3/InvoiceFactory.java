@@ -16,18 +16,19 @@ public class InvoiceFactory
     private static ArrayList<Invoice> invoiceArray;
     private int invoiceNumber; 
     private static int counter = 0;
-    private InvoiceFactory (int invoiceStartNunber)
+    
+    InvoiceFactory (int invoiceStartNunber)
     {
         invoiceArray = new ArrayList<>();  
         invoiceNumber = invoiceStartNunber; 
     }
     
-    public static InvoiceFactory createInvoice(int startnum)
+    public static InvoiceFactory createInvoiceFactory(int invoiceStartNumber)
     {
         if (counter == 0)
         {
             counter++;
-            return new InvoiceFactory(startnum); 
+            return new InvoiceFactory(invoiceStartNumber); 
         }
         else
         {

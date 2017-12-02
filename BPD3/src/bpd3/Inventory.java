@@ -44,5 +44,18 @@ public class Inventory extends BikePart {
                this.onSale + "," +
                this.quantity;
     }
+    
+    
+    public double getPrice()
+    {
+        if (onSale == true)
+        {
+            return salesPrice;
+        }
+        else
+        {
+            return listPrice;
+        }
+    }
 
 }
