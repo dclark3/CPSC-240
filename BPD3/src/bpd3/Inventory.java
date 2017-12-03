@@ -44,8 +44,7 @@ public class Inventory extends BikePart {
                this.onSale + "," +
                this.quantity;
     }
-    
-    
+       
     public double getPrice()
     {
         if (onSale == true)
@@ -56,6 +55,11 @@ public class Inventory extends BikePart {
         {
             return listPrice;
         }
+    }
+    
+    public void setQuantity(int input)
+    {
+        this.quantity = input; 
     }
 
 }

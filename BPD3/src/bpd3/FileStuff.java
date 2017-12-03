@@ -94,6 +94,8 @@ public class FileStuff {
         }
     }
     
+    
+    //this is the method to move parts
     public static String moveParts(String fileName){
         
         try{

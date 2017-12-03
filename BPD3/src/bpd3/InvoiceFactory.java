@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class InvoiceFactory 
 {
-    private static ArrayList<Invoice> invoiceArray;
+    private ArrayList<Invoice> invoiceArray;
     private int invoiceNumber; 
     private static int counter = 0;
     

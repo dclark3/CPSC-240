@@ -7,7 +7,7 @@ package bpd3;
 
 /**
  *
- * @author drado_000
+ * 
  */
 public class Person {
     
