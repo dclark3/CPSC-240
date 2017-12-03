@@ -28,12 +28,11 @@ public class FileStuff {
             Scanner fileInput = new Scanner(fileIn);
 
             String [] ss;
-            Inventory part;
 
             while (fileInput.hasNext()){
                 String s = fileInput.nextLine();
                 ss = s.split(",");
-                part = new Inventory(ss[0], Integer.parseInt(ss[1]), 
+                Inventory part = new Inventory(ss[0], Integer.parseInt(ss[1]), 
                        Double.parseDouble(ss[2]), 
                        Double.parseDouble(ss[3]), 
                        Boolean.parseBoolean(ss[4]), 
@@ -107,7 +106,8 @@ public class FileStuff {
             Warehouse fromW = BPD3.fleet.findWarehouse(ss[0]);
             Warehouse toW = BPD3.fleet.findWarehouse(ss[1]);
             
-            if (fromW != null && toW != null){
+            if (fromW != null && toW != null)
+            {
                 String [] parts;
                 Inventory part1 = null;
                 Inventory part2 = null;

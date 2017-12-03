@@ -37,7 +37,8 @@ public class Fleet {
      * @param fileName
      * @return 
      */
-    public Warehouse createWarehouse(String whName){
+    public Warehouse createWarehouse(String whName)
+    {
         ArrayList <Inventory> inven = new ArrayList<>();
         Warehouse w = new Warehouse(whName);
         fleet.add(w);

@@ -59,7 +59,7 @@ public class InvoiceFactory
         
         for (Invoice inv1 : invoiceArray)
         {
-            if (inv1.getDate().equals(date))
+            if (inv1.getFormattedDate().equals(date))
             {
                 return inv1; 
             }

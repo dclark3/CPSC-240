@@ -1,0 +1,3 @@
+mainWarehouse,van
+peddle,8
+seat,4

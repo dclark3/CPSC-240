@@ -82,7 +82,7 @@ public class Invoice
         return invoiceNumber;
     }
     
-    public String getDate()
+    public String getFormattedDate()
     {
         DateFormat setTime = new SimpleDateFormat("EEE, d MMM yyyy");
         Date time = new Date();
@@ -97,6 +97,6 @@ public class Invoice
     
     public String getCustomer()
     {
-        return cust.getfname() + " " + cust.getlname(); 
+        return cust.getfname() + "" + cust.getlname(); 
     }   
 }
