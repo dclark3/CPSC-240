@@ -50,6 +50,25 @@ public class Invoice
         return "part added"; 
     }
     
+     public String addPartToInvoice(int partNum, int quantity)
+    {     
+        String output = "";
+        Inventory in = sa.getWarehouse().findPart(partNum);
+        in.setQuantity(quantity);
+        if (in != null)
+        {
+            inven.add(in); 
+            total += in.getPrice(); 
+            sa.getWarehouse().findPart(partNum).subtractQ(quantity); 
+            output = "part added"; 
+        }
+        else
+        {
+            output = "error"; 
+        }
+        return output; 
+    }
+    
     public ArrayList<Inventory> getPartsArray()
     {
         return inven; 

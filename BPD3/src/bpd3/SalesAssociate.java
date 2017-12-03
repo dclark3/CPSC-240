@@ -6,6 +6,8 @@
 package bpd3;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 /**
  *
  * @author dan
@@ -18,8 +20,8 @@ import java.util.ArrayList;
  */
 public class SalesAssociate extends LoginAccount {
     String name;
-    Warehouse wh; 
-    InvoiceFactory invoiceFac; 
+    static Warehouse wh; 
+    public static InvoiceFactory invoiceFac; 
     Invoice invoice; 
     
     public SalesAssociate(String fName, 
@@ -50,8 +52,8 @@ public class SalesAssociate extends LoginAccount {
     
     //this is how the sales assocaite will add parts to its van from main
     //possible solution is just to make 2 methods to do this
-    public String updateVan(String filename, Warehouse ware) //need to decrease from main @@@@@@@@@
-    {
+    public static String updateVan(String filename, Warehouse ware) //need to decrease from main @@@@@@@@@
+    { 
         String output = ""; 
         ArrayList<Inventory> inven = FileStuff.warehouseRead(filename);
         if (inven.size() > 0 && inven != null)
@@ -74,12 +76,45 @@ public class SalesAssociate extends LoginAccount {
         return output;
     }
     
+    public static String updateVanFromMain(String filename)
+    {
+        String output = "";
+        ArrayList<Inventory> inven = FileStuff.warehouseRead(filename);
+        if (inven.size() > 0 && inven != null)
+        {
+            for (int i = 0; i < BPD3.mainWarehouse.getInventory().size(); i++){
+                for (int j = 0; j < inven.size(); j++){
+                    if (BPD3.mainWarehouse.getInventory().get(i).getName().equals(inven.get(j).getName()))
+                    {  
+                        wh.addPart(BPD3.mainWarehouse.getInventory().get(i)); 
+                        BPD3.mainWarehouse.getInventory().get(i).subtractQ(inven.get(j).getQuantity());  //need to make sure this actually decreases the quantity from teh correct warehouse
+                    }
+                }
+            }
+            output = "parts added"; 
+        }
+        else
+        {
+            output = "failure"; 
+        }
+        return output;
+    }
+    
     //dont forget that we need to be able to search through the invoices between certain dates
     //this creates the invoice
     public Invoice CreateSalesInvoice()
     {        
         this.invoice =invoiceFac.createInvoice();  
         return invoice; 
+    }
+    
+    public static Inventory findPart(int num){
+        for (Inventory p : wh.getInventory()){
+            if (p.getNumber() == num){
+                return p;
+            }
+        }
+        return null;       
     }
     
     
@@ -93,68 +128,19 @@ public class SalesAssociate extends LoginAccount {
             in.subtractQ(quantity);
         }
         return output; 
-    }
-    
-    public ArrayList<String> SortNumberVan()
-    {
-        ArrayList<String> output = new ArrayList<>();
-        boolean flag = true; 
-        while (flag)
-        {
-            flag = false;
-            Inventory temp;
-            for (int i =0; i<wh.getSize(); i++)
-            {
-                if (wh.getInventory().get(i).getNumber() > (wh.getInventory().get(i+1).getNumber()))
-                {
-                    temp = wh.getInventory().get(i); 
-                    wh.getInventory().set(i, wh.getInventory().get(i+1)); 
-                    wh.getInventory().set(i+1, temp);
-                    flag = true;
-                }
-            }
-        }
-        for (Inventory in : wh.getInventory())
-        {
-            output.add(in.getNumber() + " " +
-                       in.getName() + " " + 
-                        in.getlistPrice() + " " + 
-                        in.getsalePrice() + " " + 
-                        in.getonSale() + " " + 
-                        in.getQuantity()); 
-        }
-        return output; 
-    }
-    
-    public ArrayList<String> SortName()
-    {
-        ArrayList<String> output = new ArrayList<>();
-        boolean flag = true; 
-        while (flag)
-        {
-            flag = false;
-            Inventory temp;
-            for (int i =0; i<wh.getSize(); i++)
-            {
-                if (wh.getInventory().get(i).getName().compareToIgnoreCase(wh.getInventory().get(i+1).getName()) > 0)
-                {
-                    temp = wh.getInventory().get(i); 
-                    wh.getInventory().set(i, wh.getInventory().get(i+1)); 
-                    wh.getInventory().set(i+1, temp);
-                    flag = true;
-                }
-            }
-        }
-        for (Inventory in : wh.getInventory())
-        {
-            output.add(in.getName() + " " +
-                       in.getNumber() + " " + 
-                        in.getlistPrice() + " " + 
-                        in.getsalePrice() + " " + 
-                        in.getonSale() + " " + 
-                        in.getQuantity()); 
-        }
-        return output; 
     }    
+    
+     public static ArrayList<Inventory> sortName()
+    {
+        Comparator<Inventory> partsToComp = new PartCompareByName();
+        Collections.sort(wh.getInventory(), partsToComp);        
+        return wh.getInventory();
+    }
      
+    public static ArrayList<Inventory> sortNum()
+    {
+        Comparator<Inventory> partsToComp = new PartCompareByNum();
+        Collections.sort(wh.getInventory(), partsToComp);        
+        return wh.getInventory();
+    } 
 }
