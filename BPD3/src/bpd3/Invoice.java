@@ -5,6 +5,8 @@
  */
 package bpd3;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,7 +17,7 @@ import java.util.Date;
 public class Invoice 
 {
     private int invoiceNumber; 
-    private Date date; 
+    private Date date;
     private SalesAssociate sa; 
     private Customer cust; 
     private ArrayList<Inventory> inven;
@@ -25,8 +27,9 @@ public class Invoice
     {
         this.inven = new ArrayList<>();
         this.invoiceNumber = num; 
-        this.date = new Date(); 
-        this.total = 0.0; 
+        this.total = 0.0;
+        date = new Date();
+        
     }
     
     public void addSalesAssociate(SalesAssociate s)
@@ -60,9 +63,12 @@ public class Invoice
         return invoiceNumber;
     }
     
-    public Date getDate()
+    public String getDate()
     {
-        return date; 
+        DateFormat setTime = new SimpleDateFormat("HH:mm");
+        Date time = new Date();
+        return setTime.format(time);
+        
     }
     
     public SalesAssociate getSalesAssociate()
