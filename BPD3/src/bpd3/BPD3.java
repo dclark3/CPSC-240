@@ -48,9 +48,11 @@ public class BPD3 extends Application {
         
         ArrayList <Warehouse> f = new ArrayList<>();
      
-        fleet = new Fleet(f);             
-        mainWarehouse = fleet.createWarehouse("mainWarehouse");
-        Warehouse van = fleet.createWarehouse("van"); 
+        fleet = new Fleet(f);  
+        mainWarehouse = new Warehouse("mainWarehouse");
+        Warehouse van = new Warehouse("van"); 
+        fleet.addWarehouse(mainWarehouse);
+        fleet.addWarehouse(van); 
         
         admin = new SysAdmin("joe", "schmo", "abc", "def", "email");
         offMan = new OfficeMan("jane", "doe", "ghi", "jkl", "email");

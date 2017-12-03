@@ -45,6 +45,11 @@ public class Fleet {
         return w;
     }
     
+    public void addWarehouse(Warehouse wh)
+    {
+        fleet.add(wh);
+    }
+    
     /** Creates a new part manually
      * 
      * @param whName
