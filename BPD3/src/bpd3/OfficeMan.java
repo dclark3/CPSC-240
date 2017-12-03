@@ -47,10 +47,10 @@ public class OfficeMan extends LoginAccount {
         }
         return partsToOrder;
     }
-    
+    /*
     public String getCommission(String startDate, String endDate, String saName){
         
         
     }
-    
+    */
 }

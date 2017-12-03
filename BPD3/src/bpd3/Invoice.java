@@ -86,7 +86,7 @@ public class Invoice
     {
         DateFormat setTime = new SimpleDateFormat("HH:mm");
         Date time = new Date();
-        return setTime.format(time);
+        return setTime.format(date);
         
     }
     

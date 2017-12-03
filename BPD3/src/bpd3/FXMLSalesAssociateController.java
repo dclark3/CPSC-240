@@ -91,8 +91,11 @@ public class FXMLSalesAssociateController implements Initializable {
     {
         String s = InvoiceAddCustomerTextField.getText(); 
         String [] sArray = s.split(","); 
+        
+        
         InvoiceTextArea.appendText(sArray[0]);
         InvoiceTextArea.appendText(sArray[1]); 
+        InvoiceTextArea.appendText(in.getDate()); 
     }
     
     @FXML
@@ -113,6 +116,7 @@ public class FXMLSalesAssociateController implements Initializable {
     private void InvoiceStartButtonAction(ActionEvent event)
     {
         Invoice in = SalesAssociate.invoiceFac.createInvoice(); 
+        InvoiceTextArea.setText(""); 
         this.in = in;
     }  
     
