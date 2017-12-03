@@ -84,9 +84,8 @@ public class Invoice
     
     public String getDate()
     {
-        DateFormat setTime = new SimpleDateFormat("HH:mm");
-        Date time = new Date();
-        return setTime.format(time);
+        DateFormat setTime = new SimpleDateFormat("EEE, d MMM yyyy");
+        return setTime.format(date);
         
     }
     

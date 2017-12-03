@@ -50,7 +50,12 @@ public class OfficeMan extends LoginAccount {
     
     public String getCommission(String startDate, String endDate, String saName){
         
-        
+       InvoiceFactory inf = BPD3.sa.getFactory();
+       
+       for (Invoice i : inf.getInvList()){
+           
+           
+       }
     }
     
 }

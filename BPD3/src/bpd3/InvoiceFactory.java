@@ -67,4 +67,8 @@ public class InvoiceFactory
         return null;
         
     }
+    
+    public ArrayList<Invoice> getInvList(){
+        return invoiceArray;
+    }
 }
