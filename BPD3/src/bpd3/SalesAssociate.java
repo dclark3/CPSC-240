@@ -49,7 +49,6 @@ public class SalesAssociate extends LoginAccount {
         return name; 
     }
     
-    
     //this is how the sales assocaite will add parts to its van from main
     //possible solution is just to make 2 methods to do this
     public static String updateVan(String filename, Warehouse ware) //need to decrease from main @@@@@@@@@
@@ -106,6 +105,11 @@ public class SalesAssociate extends LoginAccount {
     {        
         this.invoice =invoiceFac.createInvoice();  
         return invoice; 
+    }
+    
+    public static InvoiceFactory getInvoiceFac()
+    {
+        return invoiceFac; 
     }
     
     public static Inventory findPart(int num){

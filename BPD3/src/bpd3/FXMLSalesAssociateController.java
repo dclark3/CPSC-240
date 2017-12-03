@@ -87,15 +87,30 @@ public class FXMLSalesAssociateController implements Initializable {
     private Button InvoiceAddCustomerButton;
     
     @FXML
+    private TextField DisplayInvoiceTextField;
+    
+    @FXML
+    private TextArea DisplayInvoiceTextArea;
+    
+    @FXML
+    private Button DisplayInvoiceButton;
+    
+    @FXML
+    private void DisplayInvoiceButtonAction(ActionEvent event)
+    {
+        String s = DisplayInvoiceTextField.getText(); 
+        int i = Integer.parseInt(s); 
+        Invoice display = SalesAssociate.getInvoiceFac().getInvoice(i); 
+        //DisplayInvoiceTextArea.setText("Sales Invoice for " + Invoice.getCustomer());
+    }
+    
+    @FXML
     private void InvoiceAddCustomerButtonAction(ActionEvent event)
     {
         String s = InvoiceAddCustomerTextField.getText(); 
         String [] sArray = s.split(","); 
-        
-        
-        InvoiceTextArea.appendText(sArray[0]);
-        InvoiceTextArea.appendText(sArray[1]); 
-        InvoiceTextArea.appendText(in.getDate()); 
+        in.addCustomer(sArray[0], sArray[1]);        
+        InvoiceTextArea.setText("Customer " + sArray[0] + " " + sArray[1] + " added.");
     }
     
     @FXML
@@ -109,7 +124,15 @@ public class FXMLSalesAssociateController implements Initializable {
     {
         String s1 = InvoiceTextField.getText();
         String s2 = InvoiceQuantityTextField.getText();
-        in.addPartToInvoice(Integer.parseInt(s1), Integer.parseInt(s2));       
+        boolean output = in.addPartToInvoice(Integer.parseInt(s1), Integer.parseInt(s2));
+        if (output)
+        {
+            InvoiceTextArea.setText("error");
+        }
+        else
+        {
+            InvoiceTextArea.setText("Part number: " + s1 + " " + "Quantity: " + s2 + " " + "added to invoice " + in.getNumber()); 
+        }
     }
     
     @FXML

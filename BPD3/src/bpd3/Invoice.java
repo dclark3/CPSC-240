@@ -37,9 +37,9 @@ public class Invoice
         this.sa=s;
     }
     
-    public void addCustomer(Customer c)
+    public void addCustomer(String fname, String lname)
     {
-        this.cust=c;
+        this.cust= new Customer(fname, lname); 
     }
     
     //need to decrease the quantity in the sales associate warehouse @@@@@@@@@@@@@@@@@@@@ look in the sales assocaite class
@@ -53,9 +53,9 @@ public class Invoice
         return "part added"; 
     }
     
-     public String addPartToInvoice(int partNum, int quantity)
+     public Boolean addPartToInvoice(int partNum, int quantity)
     {     
-        String output = "";
+        boolean output = false;
         Inventory in = sa.getWarehouse().findPart(partNum);
         in.setQuantity(quantity);
         if (in != null)
@@ -63,11 +63,11 @@ public class Invoice
             inven.add(in); 
             total += in.getPrice(); 
             sa.getWarehouse().findPart(partNum).subtractQ(quantity); 
-            output = "part added"; 
+            output = true; 
         }
         else
         {
-            output = "error"; 
+            output = false; 
         }
         return output; 
     }
@@ -84,7 +84,7 @@ public class Invoice
     
     public String getDate()
     {
-        DateFormat setTime = new SimpleDateFormat("HH:mm");
+        DateFormat setTime = new SimpleDateFormat("EEE, d MMM yyyy");
         Date time = new Date();
         return setTime.format(date);
         
@@ -95,8 +95,8 @@ public class Invoice
         return sa; 
     }
     
-    public Customer getCustomer()
+    public String getCustomer()
     {
-        return cust; 
+        return cust.getfname() + " " + cust.getlname(); 
     }   
 }
