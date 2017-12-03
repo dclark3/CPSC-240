@@ -139,7 +139,7 @@ public class FXMLSysAdminController implements Initializable {
     
     private void checkOfficeMan(ActionEvent event) throws IOException {
       String oun = userOfficeMan.getText();
-      if (oun.equals(BPD3.offMan.getFName())) {
+      if (oun.equals(BPD3.offMan.getUsername())) {
           OfficeManlabel.setText("Sorry, user already exists");
            }
       else {
@@ -160,7 +160,7 @@ public class FXMLSysAdminController implements Initializable {
 }
  private void checkWHman(ActionEvent event) throws IOException {
       String whun = userWHman.getText();
-      if (whun.equals(BPD3.wareMan.getFName())) {
+      if (whun.equals(BPD3.wareMan.getUsername())) {
           WHmanuserlabel.setText("Sorry, user already exists");
            }
       else {
@@ -183,7 +183,7 @@ public class FXMLSysAdminController implements Initializable {
 }
   private void checkSA(ActionEvent event) throws IOException {
       String saun = userSA.getText();
-      if (saun.equals(BPD3.sa.getFName())) {
+      if (saun.equals(BPD3.sa.getUsername())) {
           SAlabel.setText("Sorry, user already exists");
            }
       else {
@@ -192,7 +192,7 @@ public class FXMLSysAdminController implements Initializable {
   
   private void checkSV(ActionEvent event) throws IOException {
       String SV = SVname.getText();
-      if (SV.equals(BPD3.sa.getFName())) {
+      if (SV.equals(BPD3.sa.getUsername())) {
           SVlabel.setText("Sorry, van already exists");
            }
       else {
@@ -229,7 +229,7 @@ public class FXMLSysAdminController implements Initializable {
       String adminpass = systemadminpass.getText();
       String confirmadminpass = confirmsystemadminpass.getText();
       if (adminpass.equals(confirmadminpass)) {
-          deleteuserlabel.setText( delete + " successfully deleted!")
+          deleteuserlabel.setText( delete + " successfully deleted!");
       }
       else {
           deleteuserlabel.setText("System admin pass wrong! Try again.");
