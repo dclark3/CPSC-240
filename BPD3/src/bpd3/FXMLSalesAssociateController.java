@@ -81,9 +81,24 @@ public class FXMLSalesAssociateController implements Initializable {
     private TextField InvoiceQuantityTextField; 
     
     @FXML
+    private TextField InvoiceAddCustomerTextField;
+    
+    @FXML
+    private Button InvoiceAddCustomerButton;
+    
+    @FXML
+    private void InvoiceAddCustomerButtonAction(ActionEvent event)
+    {
+        String s = InvoiceAddCustomerTextField.getText(); 
+        String [] sArray = s.split(","); 
+        InvoiceTextArea.appendText(sArray[0]);
+        InvoiceTextArea.appendText(sArray[1]); 
+    }
+    
+    @FXML
     private void InvoiceFinishButtonAction(ActionEvent event)
     {
-        InvoiceTextArea.appendText("hi"); 
+        InvoiceTextArea.setText("You have created Invoice: " + in.getNumber()); 
     }
     
     @FXML
@@ -99,8 +114,7 @@ public class FXMLSalesAssociateController implements Initializable {
     {
         Invoice in = SalesAssociate.invoiceFac.createInvoice(); 
         this.in = in;
-    }
-    
+    }  
     
     @FXML
     private void SortNumberButtonAction(ActionEvent event)

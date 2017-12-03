@@ -8,16 +8,29 @@ package bpd3;
  *
  * @author Dan
  */
-public class Customer {
-    private String name;
+public class Customer extends Person {
+    private String fname;
+    private String lname; 
     
-    public Customer(String name)
+    public Customer(String fname, String lname)
     {
-        this.name=name;
+        super (fname, lname); 
+        this.fname = fname;
+        this.lname = lname;
     }
     
     public String getName()
     {
-        return name; 
+        return fname + " " + lname ; 
+    }
+    
+    public String getfname()
+    {
+        return fname;
+    }
+    
+    public String getlname()
+    {
+        return lname;
     }
 }

@@ -69,19 +69,19 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <ButtonBar layoutX="155.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" />
-                        <Label layoutX="29.0" layoutY="68.0" prefHeight="18.0" prefWidth="148.0" text="Create Invoice:" />
-                        <Label layoutX="32.0" layoutY="14.0" prefHeight="18.0" prefWidth="502.0" text="In order to generate an invoice first press the Start button.  " />
-                        <Label layoutX="29.0" layoutY="32.0" prefHeight="18.0" prefWidth="590.0" text="Then enter the part numbers by typing in the part number and pressing enter." />
-                        <Label layoutX="29.0" layoutY="50.0" prefHeight="18.0" prefWidth="605.0" text="Press Finish when you are done adding parts and ready to generate the invoice." />
+                        <Label layoutX="28.0" layoutY="21.0" prefHeight="18.0" prefWidth="148.0" text="Create Invoice:" />
                         <Button fx:id="InvoiceFinishButton" layoutX="566.0" layoutY="331.0" mnemonicParsing="false" onAction="#InvoiceFinishButtonAction" text="Finish" />
-                        <Button fx:id="InvoiceStartButton" layoutX="141.0" layoutY="64.0" mnemonicParsing="false" onAction="#InvoiceStartButtonAction" text="Start" />
-                        <Button fx:id="InvoiceAddButton" layoutX="417.0" layoutY="130.0" mnemonicParsing="false" onAction="#InvoiceAddButtonAction" prefHeight="26.0" prefWidth="94.0" text="Add Part" />
-                        <TextField fx:id="InvoiceTextField" layoutX="194.0" layoutY="95.0" prefHeight="26.0" prefWidth="203.0" />
+                        <Button fx:id="InvoiceStartButton" layoutX="174.0" layoutY="17.0" mnemonicParsing="false" onAction="#InvoiceStartButtonAction" text="Start" />
+                        <Button fx:id="InvoiceAddButton" layoutX="552.0" layoutY="130.0" mnemonicParsing="false" onAction="#InvoiceAddButtonAction" prefHeight="26.0" prefWidth="53.0" text="Add" />
+                        <TextField fx:id="InvoiceTextField" layoutX="235.0" layoutY="95.0" prefHeight="26.0" prefWidth="297.0" />
                         <TextArea fx:id="InvoiceTextArea" layoutX="29.0" layoutY="198.0" prefHeight="200.0" prefWidth="505.0" />
                         <Label layoutX="544.0" layoutY="298.0" prefHeight="18.0" prefWidth="120.0" text="Generate Invoice" />
                         <Label layoutX="27.0" layoutY="99.0" prefHeight="18.0" prefWidth="150.0" text="Enter part number:" />
                         <Label layoutX="29.0" layoutY="134.0" prefHeight="18.0" prefWidth="93.0" text="Enter quantity:" />
-                        <TextField fx:id="InvoiceQuantityTextField" layoutX="194.0" layoutY="131.0" prefHeight="26.0" prefWidth="203.0" />
+                        <TextField fx:id="InvoiceQuantityTextField" layoutX="234.0" layoutY="130.0" prefHeight="26.0" prefWidth="298.0" />
+                        <Label layoutX="29.0" layoutY="55.0" text="Add Customer (fname, lname):" />
+                        <TextField fx:id="InvoiceAddCustomerTextField" layoutX="234.0" layoutY="51.0" prefHeight="26.0" prefWidth="299.0" />
+                        <Button fx:id="InvoiceAddCustomerButton" layoutX="552.0" layoutY="52.0" mnemonicParsing="false" onAction="#InvoiceAddCustomerButtonAction" prefHeight="26.0" prefWidth="53.0" text="Add" />
                      </children>
                   </AnchorPane>
                </content>
