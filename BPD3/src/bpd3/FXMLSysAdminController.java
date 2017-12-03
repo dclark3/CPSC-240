@@ -224,6 +224,17 @@ public class FXMLSysAdminController implements Initializable {
        changepasslabel.setText("Passwords do not match!");   
       }
   }
+  private void confirmdeleteuser(ActionEvent event) {
+      String delete = deleteuser.getText();
+      String adminpass = systemadminpass.getText();
+      String confirmadminpass = confirmsystemadminpass.getText();
+      if (adminpass.equals(confirmadminpass)) {
+          deleteuserlabel.setText( delete + " successfully deleted!")
+      }
+      else {
+          deleteuserlabel.setText("System admin pass wrong! Try again.");
+      }
+  }
 private void changeuserinfo(ActionEvent event) {
         
         String fName = changefirstname.getText();
