@@ -92,8 +92,5 @@ public class Invoice
     public Customer getCustomer()
     {
         return cust; 
-    }
-   
-    
-    
+    }   
 }
