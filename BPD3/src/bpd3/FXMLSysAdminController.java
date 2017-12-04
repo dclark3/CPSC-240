@@ -229,7 +229,7 @@ public class FXMLSysAdminController implements Initializable {
       String adminpass = systemadminpass.getText();
       String confirmadminpass = confirmsystemadminpass.getText();
       if (adminpass.equals(confirmadminpass)) {
-          deleteuserlabel.setText( delete + " successfully deleted!")
+          deleteuserlabel.setText( delete + " successfully deleted!");
       }
       else {
           deleteuserlabel.setText("System admin pass wrong! Try again.");
