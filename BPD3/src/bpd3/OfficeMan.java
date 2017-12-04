@@ -5,7 +5,10 @@
  */
 package bpd3;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -44,9 +47,10 @@ public class OfficeMan extends LoginAccount {
         }
         return partsToOrder;
     }
-    
-    public String getCommission(){
-        return "I am waiting on Dan to help with this";
+    /*
+    public String getCommission(String startDate, String endDate, String saName){
+        
+        
     }
-    
+    */
 }
