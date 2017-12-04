@@ -32,7 +32,7 @@ public class Inventory extends BikePart {
     }
     
     public int subtractQ(int q){
-        this.quantity = this.quantity - q;
+        this.quantity = quantity - q;
         return this.quantity;
     }
     
@@ -44,8 +44,7 @@ public class Inventory extends BikePart {
                this.onSale + "," +
                this.quantity;
     }
-    
-    
+       
     public double getPrice()
     {
         if (onSale == true)
@@ -56,6 +55,11 @@ public class Inventory extends BikePart {
         {
             return listPrice;
         }
+    }
+    
+    public void setQuantity(int input)
+    {
+        this.quantity = input; 
     }
 
 }
