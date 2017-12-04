@@ -20,7 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
+import javafx.event.ActionEvent;
 /**
  * FXML Controller class
  *
@@ -136,106 +136,141 @@ public class FXMLSysAdminController implements Initializable {
     }
     
     
-    
-    private void checkOfficeMan(ActionEvent event) throws IOException {
+    @FXML
+    protected void checkOfficeManAction(ActionEvent event) throws IOException {
       String oun = userOfficeMan.getText();
-      if (oun.equals(BPD3.offMan.getUsername())) {
+      if (BPD3.accounts.contains(oun)) {
           OfficeManlabel.setText("Sorry, user already exists");
            }
       else {
           OfficeManlabel.setText("Name available");
     } }
- private void createOfficeMan(ActionEvent event) {
+    @FXML
+ protected void createOfficeManAction(ActionEvent event) {
      String opw = passOfficeMan.getText();
      String confirmopw = confirmpassOfficeMan.getText();
      if (opw.equals(confirmopw)) {
          String oemail = emailOfficeMan.getText();
          String ofname = firstnameOfficeMan.getText();
          String olname = lastnameOfficeMan.getText();
+         String omun = userOfficeMan.getText();
+         OfficeMan o = new OfficeMan(ofname,olname,omun,opw,oemail);
+         BPD3.accounts.add(o);
+         Users.omlist.add(o);
+         createOfficeManlabel.setText("User created!");
      }
      else {
          createOfficeManlabel.setText("Passwords do not match!");
              
      } 
 }
- private void checkWHman(ActionEvent event) throws IOException {
+     @FXML
+ protected void checkWHmanAction(ActionEvent event) throws IOException {
       String whun = userWHman.getText();
-      if (whun.equals(BPD3.wareMan.getUsername())) {
+      if (BPD3.accounts.contains(whun)) {
           WHmanuserlabel.setText("Sorry, user already exists");
            }
       else {
           WHmanuserlabel.setText("Name available");
     } }
-  private void createWHman(ActionEvent event) {
+     @FXML
+  protected void createWHmanAction(ActionEvent event) {
      String whpw = passWHman.getText();
      String confirmwhpw = confirmpassWHman.getText();
      if (whpw.equals(confirmwhpw)) {
          String whemail = emailWHman.getText();
          String whfname = firstnameWHman.getText();
          String whlname = lastnameWHman.getText();
+         String whun = userWHman.getText();
+         WarehouseMan a = new WarehouseMan(whfname,whlname,whun,whpw,whemail);
+         BPD3.accounts.add(a);
+         Users.wmlist.add(a);
          createWHmanlabel.setText("New Warehouse Manager Created!");
+         createWHmanlabel.getText();
      }
      else {
          createWHmanlabel.setText("Passwords do not match!");
-         
+         createWHmanlabel.getText();
    
      } 
 }
-  private void checkSA(ActionEvent event) throws IOException {
+      @FXML
+  protected void checkSAAction(ActionEvent event) throws IOException {
       String saun = userSA.getText();
-      if (saun.equals(BPD3.sa.getUsername())) {
+      if (BPD3.accounts.contains(saun)) {
           SAlabel.setText("Sorry, user already exists");
+          SAlabel.getText();
            }
       else {
           SAlabel.setText("Name available");
-    } }
-  
-  private void checkSV(ActionEvent event) throws IOException {
+          SAlabel.getText();
+    } } 
+      @FXML
+  protected void checkSVAction(ActionEvent event) throws IOException {
       String SV = SVname.getText();
-      if (SV.equals(BPD3.sa.getUsername())) {
+      if (BPD3.accounts.contains(SV)) {
           SVlabel.setText("Sorry, van already exists");
+          SVlabel.getText();
            }
       else {
           SVlabel.setText("Name available");
+          SVlabel.getText();
     } }  
-  private void createSA(ActionEvent event) {
+      @FXML
+  protected void createSAAction(ActionEvent event) {
      String sapw = passSA.getText();
      String confirmsapw = confirmpassSA.getText();
      if (sapw.equals(confirmsapw)) {
          String saemail = emailSA.getText();
          String safname = firstnameSA.getText();
          String salname = lastnameSA.getText();
+         String saun = userSA.getText();
+         Warehouse w = new Warehouse(SVname.getText());
+         String wn = SVname.getText();
+         SalesAssociate s = new SalesAssociate(safname,salname,saun,sapw,saemail,wn,w);
+         BPD3.accounts.add(s);
+         Users.salist.add(s);
          createSAlabel.setText("New Sales Associate Created!");
+         createSAlabel.getText();
      }
      else {
          createSAlabel.setText("Passwords do not match!");
-         
+         createSAlabel.getText();
    
      } 
 }
-  private void changePass() {
+      @FXML
+  protected void changepassAction() {
       String user = changepassUser.getText();
       String newpw = newpass.getText();
       String confirmnewpw = confirmnewpass.getText();
       if (newpw.equals(confirmnewpw)) {
+      //BPD3.accounts.updatePassword(newpw);
       changepasslabel.setText("Change of password successful!");
+      changepasslabel.getText();
   }
       else {
-       changepasslabel.setText("Passwords do not match!");   
+       changepasslabel.setText("Passwords do not match!");
+       changepasslabel.getText();
       }
   }
-  private void confirmdeleteuser(ActionEvent event) {
+      @FXML
+  protected void confirmdeleteuserAction(ActionEvent event) {
       String delete = deleteuser.getText();
       String adminpass = systemadminpass.getText();
       String confirmadminpass = confirmsystemadminpass.getText();
       if (adminpass.equals(confirmadminpass)) {
+          BPD3.accounts.remove(delete);
           deleteuserlabel.setText( delete + " successfully deleted!");
+          deleteuserlabel.getText();
       }
       else {
           deleteuserlabel.setText("System admin pass wrong! Try again.");
+          deleteuserlabel.getText();
       }
   }
-private void changeuserinfo(ActionEvent event) {
+      @FXML
+protected void changeuserinfoAction(ActionEvent event) {
         
         String fName = changefirstname.getText();
         String lName = changelastname.getText();
@@ -249,7 +284,7 @@ private void changeuserinfo(ActionEvent event) {
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       // checkOfficeMan.setOnAction(this::checkOfficeMan);
     }    
     
 }
