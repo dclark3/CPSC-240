@@ -132,7 +132,7 @@ public class FXMLOfficeManController implements Initializable {
                 partsToOrder = p + "\n" + partsToOrder;
             }
         }
-        displayTextField.setText(partsToOrder);
+//        displayTextField.setText(partsToOrder);
         
     }
     
