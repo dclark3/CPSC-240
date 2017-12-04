@@ -49,11 +49,11 @@ public class SalesAssociate extends LoginAccount {
         return name; 
     }
     
+
     public InvoiceFactory getFactory()
     {
         return invoiceFac;
     }
-    
     
     //this is how the sales assocaite will add parts to its van from main
     //possible solution is just to make 2 methods to do this
@@ -111,6 +111,11 @@ public class SalesAssociate extends LoginAccount {
     {        
         this.invoice =invoiceFac.createInvoice();  
         return invoice; 
+    }
+    
+    public static InvoiceFactory getInvoiceFac()
+    {
+        return invoiceFac; 
     }
     
     public static Inventory findPart(int num){
