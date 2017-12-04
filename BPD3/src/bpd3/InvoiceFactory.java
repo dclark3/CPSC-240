@@ -13,14 +13,14 @@ import java.util.ArrayList;
  */
 public class InvoiceFactory 
 {
-    private static ArrayList<Invoice> invoiceArray;
+    private ArrayList<Invoice> invoiceArray;
     private int invoiceNumber; 
     private static int counter = 0;
     
     InvoiceFactory (int invoiceStartNunber)
     {
         invoiceArray = new ArrayList<>();  
-        invoiceNumber = invoiceStartNunber; 
+        invoiceNumber = invoiceStartNunber;
     }
     
     public static InvoiceFactory createInvoiceFactory(int invoiceStartNumber)
@@ -47,11 +47,24 @@ public class InvoiceFactory
     {
         for (Invoice inv1 : invoiceArray)
         {
-            if (inv1.getNumber() == invoiceNumber)
+            if (inv1.getNumber() == invoiceNum)
             {
                 return inv1; 
             }
         }
         return null;
-    }   
+    } 
+    
+    public Invoice getInvoice (String date){
+        
+        for (Invoice inv1 : invoiceArray)
+        {
+            if (inv1.getFormattedDate().equals(date))
+            {
+                return inv1; 
+            }
+        }
+        return null;
+        
+    }
 }
