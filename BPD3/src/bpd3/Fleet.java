@@ -37,11 +37,17 @@ public class Fleet {
      * @param fileName
      * @return 
      */
-    public Warehouse createWarehouse(String whName){
+    public Warehouse createWarehouse(String whName)
+    {
         ArrayList <Inventory> inven = new ArrayList<>();
         Warehouse w = new Warehouse(whName);
         fleet.add(w);
         return w;
+    }
+    
+    public void addWarehouse(Warehouse wh)
+    {
+        fleet.add(wh);
     }
     
     /** Creates a new part manually
