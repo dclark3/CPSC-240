@@ -28,12 +28,11 @@ public class FileStuff {
             Scanner fileInput = new Scanner(fileIn);
 
             String [] ss;
-            Inventory part;
 
             while (fileInput.hasNext()){
                 String s = fileInput.nextLine();
                 ss = s.split(",");
-                part = new Inventory(ss[0], Integer.parseInt(ss[1]), 
+                Inventory part = new Inventory(ss[0], Integer.parseInt(ss[1]), 
                        Double.parseDouble(ss[2]), 
                        Double.parseDouble(ss[3]), 
                        Boolean.parseBoolean(ss[4]), 
@@ -104,44 +103,41 @@ public class FileStuff {
             
             String names = fileIn.nextLine();
             String [] ss = names.split(",");
-            Warehouse fromW = BPD3.fleet.findWarehouse(ss[0]);
-            Warehouse toW = BPD3.fleet.findWarehouse(ss[1]);
-            
-            if (fromW != null && toW != null){
-                String [] parts;
-                Inventory part1 = null;
-                Inventory part2 = null;
-                            
-                while (fileIn.hasNext()){
+                Warehouse fromW = BPD3.fleet.findWarehouse(ss[0]);
+                Warehouse toW = BPD3.fleet.findWarehouse(ss[1]);
+                
+                if (fromW != null && toW != null)
+                {
+                    String [] parts;
+                    Inventory part1 = null;
+                    Inventory part2 = null;  
+                while (fileIn.hasNext())
+                {
                     String s = fileIn.nextLine();
                     parts = s.split(",");
                     part1 = fromW.findPart(parts[0]);
                     part2 = toW.findPart(parts[0]);
-                    
-                    if (part1 !=null && part2 == null){
+                    if (part1 !=null && part2 == null)
+                    {
                         int q = Integer.parseInt(parts[1]);
                         Inventory part = new Inventory(part1.getName(),
                                                        part1.getNumber(),
                                                        part1.getlistPrice(),
                                                        part1.getsalePrice(),
                                                        part1.getonSale(),
-                                                       part1.updateQ(q));
+                                                       q);
                         toW.addPart(part);
                         part1.subtractQ(q);
-                        
                     }
                     else if (part1 != null && part2 != null){
                         int q = Integer.parseInt(parts[1]);
                         part1.subtractQ(q);
                         part2.addQ(q);
-                    }
-                }
-                if (part1 == null && part2 == null){
-                    return "error";
+                    }                          
                 }
                 return "parts sucessfully moved";
             }
-            return "warehouses could not be found"; 
+            return "warehouses could not be found";            
         }
         catch (FileNotFoundException ex){
             ex.printStackTrace();
