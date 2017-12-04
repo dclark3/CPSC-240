@@ -31,6 +31,7 @@ public class WarehouseMan extends LoginAccount{
     
     public static String enter(String[] s)
     {
+        System.out.println("check 1");
         String output = "initital output"; 
         Inventory inven = new Inventory(s[0],  //name 
                         Integer.parseInt(s[1]),  //number 
@@ -38,29 +39,33 @@ public class WarehouseMan extends LoginAccount{
                         Double.parseDouble(s[3]),  //sale price
                         Boolean.parseBoolean(s[4]), //on sale
                         Integer.parseInt(s[5])); //quantity
+        boolean check = true; 
+        System.out.println(inven.getName()); 
         for (int i = 0; i < BPD3.mainWarehouse.getSize(); i++)
         {
-            if (BPD3.mainWarehouse.getInventory().get(i).getName() == null ? s[1] == null : BPD3.mainWarehouse.getInventory().get(i).getName().equals(s[1]))
+            if (BPD3.mainWarehouse.getInventory().get(i).getName() == null ? inven.getName() == null : BPD3.mainWarehouse.getInventory().get(i).getName().equals(inven.getName()))
             {
-                //this will update the part if its already in the main warehouse
+                check = false;
                 BPD3.mainWarehouse.getInventory().get(i).setlistPrice(inven.getlistPrice()); 
                 BPD3.mainWarehouse.getInventory().get(i).setsalePrice(inven.getsalePrice()); 
                 BPD3.mainWarehouse.getInventory().get(i).setonSale(inven.getonSale());
                 BPD3.mainWarehouse.getInventory().get(i).addQ(inven.getQuantity()); 
-                output = "part updated"; 
+                output = "part updated";
             }
             else
             {
-                //this will just add the part
-                BPD3.mainWarehouse.addPart(inven); 
-                output = "part added"; 
+                check = true;
+                
             }
+        }
+        if (check)
+        {
+            BPD3.mainWarehouse.addPart(inven); 
+            output = "part added";
         }
         
         return output;
     }
-    
-    //put display into the controller look at officeman
 
     public static ArrayList<Inventory> sortName()
     {

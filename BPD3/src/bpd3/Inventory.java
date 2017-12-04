@@ -32,7 +32,7 @@ public class Inventory extends BikePart {
     }
     
     public int subtractQ(int q){
-        this.quantity = this.quantity - q;
+        this.quantity = quantity - q;
         return this.quantity;
     }
     

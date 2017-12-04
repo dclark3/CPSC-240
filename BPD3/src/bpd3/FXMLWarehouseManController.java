@@ -111,8 +111,9 @@ public class FXMLWarehouseManController implements Initializable {
     @FXML
     private void DisplayNumButtonAction(ActionEvent event)
     {
-         String s = DisplayPartNumField.getText();
-        Inventory p = BPD3.cmd.examinePart(s);
+        String s = DisplayPartNumField.getText();
+        int i = Integer.parseInt(s);
+        Inventory p = BPD3.cmd.examinePart(i);
         if (p!=null){
             DisplayArea.setText(p.toString());
         }

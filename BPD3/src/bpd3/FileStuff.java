@@ -125,7 +125,7 @@ public class FileStuff {
                                                        part1.getlistPrice(),
                                                        part1.getsalePrice(),
                                                        part1.getonSale(),
-                                                       part1.getQuantity());
+                                                       q);
                         toW.addPart(part);
                         part1.subtractQ(q);
                     }

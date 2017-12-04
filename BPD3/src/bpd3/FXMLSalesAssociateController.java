@@ -103,7 +103,16 @@ public class FXMLSalesAssociateController implements Initializable {
         Invoice display = SalesAssociate.getInvoiceFac().getInvoice(i); 
         DisplayInvoiceTextArea.setText("Sales Invoice for " + display.getCustomer() + ", " + display.getFormattedDate());
         DisplayInvoiceTextArea.appendText("\n" + "Part Name" + "     " + "Part Number" + "     " + "Price" + "     " + "Sales Price" + "  " + "Qnty" + "   " + "Total Cost");
-        DisplayInvoiceTextArea.appendText("\n");
+        for (int x = 0; x < display.getPartsArray().size(); x++)
+        {
+           DisplayInvoiceTextArea.appendText("\n" + display.getPartsArray().get(x).getName());
+           DisplayInvoiceTextArea.appendText("            " + display.getPartsArray().get(x).getNumber());
+           DisplayInvoiceTextArea.appendText("               " + display.getPartsArray().get(x).getPrice());
+           DisplayInvoiceTextArea.appendText("               " + display.getPartsArray().get(x).getsalePrice());
+           DisplayInvoiceTextArea.appendText("            " + display.getPartsArray().get(x).getQuantity());
+           DisplayInvoiceTextArea.appendText("            " + (display.getPartsArray().get(x).getPrice() * display.getPartsArray().get(x).getQuantity()));
+        }
+        DisplayInvoiceTextArea.appendText("\n" + "Total:                                                                                           " +display.getTotal());
     }
     
     @FXML
@@ -129,11 +138,11 @@ public class FXMLSalesAssociateController implements Initializable {
         boolean output = in.addPartToInvoice(Integer.parseInt(s1), Integer.parseInt(s2));
         if (output)
         {
-            InvoiceTextArea.setText("error");
+            InvoiceTextArea.setText("Part number: " + s1 + " " + "Quantity: " + s2 + " " + "added to invoice " + in.getNumber()); 
         }
         else
         {
-            InvoiceTextArea.setText("Part number: " + s1 + " " + "Quantity: " + s2 + " " + "added to invoice " + in.getNumber()); 
+            InvoiceTextArea.setText("error");
         }
     }
     
@@ -141,7 +150,7 @@ public class FXMLSalesAssociateController implements Initializable {
     private void InvoiceStartButtonAction(ActionEvent event)
     {
         Invoice in = SalesAssociate.invoiceFac.createInvoice(); 
-        InvoiceTextArea.setText(""); 
+        InvoiceTextArea.setText("Invoice started"); 
         this.in = in;
     }  
     
