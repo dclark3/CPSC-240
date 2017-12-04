@@ -28,8 +28,7 @@ public class SalesAssociate extends LoginAccount {
                           String lName,
                           String username, 
                           String password, 
-                          String email, 
-                          String name, 
+                          String email, String name, 
                           Warehouse wh){
         
         super(fName, lName, username, password, email);
@@ -48,7 +47,6 @@ public class SalesAssociate extends LoginAccount {
     {
         return name; 
     }
-    
 
     public InvoiceFactory getFactory()
     {
@@ -83,30 +81,16 @@ public class SalesAssociate extends LoginAccount {
     
     public static String updateVanFromMain(String filename)
     {
-        String output = "";
-        ArrayList<Inventory> inven = FileStuff.warehouseRead(filename);
-        if (inven.size() > 0 && inven != null)
-        {
-            for (int i = 0; i < BPD3.mainWarehouse.getInventory().size(); i++){
-                for (int j = 0; j < inven.size(); j++){
-                    if (BPD3.mainWarehouse.getInventory().get(i).getName().equals(inven.get(j).getName()))
-                    {  
-                        wh.addPart(BPD3.mainWarehouse.getInventory().get(i)); 
-                        BPD3.mainWarehouse.getInventory().get(i).subtractQ(inven.get(j).getQuantity());  //need to make sure this actually decreases the quantity from teh correct warehouse
-                    }
-                }
-            }
-            output = "parts added"; 
-        }
-        else
-        {
-            output = "failure"; 
-        }
+        String output = FileStuff.moveParts(filename); 
         return output;
     }
     
-    //dont forget that we need to be able to search through the invoices between certain dates
-    //this creates the invoice
+    public static String updateVanFromVan(String filename)
+    {
+        String output = FileStuff.moveParts(filename); 
+        return output;
+    }
+
     public Invoice CreateSalesInvoice()
     {        
         this.invoice =invoiceFac.createInvoice();  

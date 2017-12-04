@@ -49,27 +49,50 @@ public class Invoice
         BikePart bp = wh.findPart(partNum); 
         Inventory inv = new Inventory(bp.getName(), bp.getNumber(), bp.getlistPrice(), bp.getsalePrice(), bp.getonSale(), quantity); 
         inven.add(inv); 
-        total += inv.getPrice();
+        //total += inv.getPrice();
         return "part added"; 
     }
     
      public Boolean addPartToInvoice(int partNum, int quantity)
     {     
         boolean output = false;
-        Inventory in = sa.getWarehouse().findPart(partNum);
+        Inventory in = sa.wh.findPart(partNum); 
+        System.out.println(quantity);
         in.setQuantity(quantity);
+        System.out.println(in.getQuantity()); 
         if (in != null)
         {
+            total += in.getPrice() * quantity; 
+            System.out.println("before its added " + in.getName() + " " + in.getQuantity());    //i was right here in the process
             inven.add(in); 
             total += in.getPrice(); 
             sa.getWarehouse().findPart(partNum).subtractQ(quantity); 
+            System.out.println("after its added " + in.getName() + " " + in.getQuantity()); 
+            //total += in.getPrice(); 
+            sa.wh.findPart(partNum).subtractQ(quantity);
+            System.out.println("after2 its added " + in.getName() + " " + in.getQuantity());
             output = true; 
         }
         else
         {
             output = false; 
         }
+        for (int i =0; i < inven.size(); i++)  //when it gets down to here the quantity is wrong
+        {
+            System.out.println(inven.get(i).getName() + " " + inven.get(i).getQuantity()); 
+        }
         return output; 
+    }
+     
+    public double updateTotal(double price, int quantity)
+    {
+        
+        return total; 
+    }
+     
+    public double getTotal()
+    {
+        return total;
     }
     
     public ArrayList<Inventory> getPartsArray()
@@ -102,9 +125,5 @@ public class Invoice
     public String getCustomer()
     {
         return cust.getfname() + " " + cust.getlname(); 
-    }
-    
-    public double getTotal(){
-        return this.total;
     }
 }

@@ -74,5 +74,4 @@ public class OfficeMan extends LoginAccount {
        
        return total;
     }
-    
 }

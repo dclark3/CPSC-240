@@ -18,6 +18,7 @@ public class Warehouse {
     
     public Warehouse(String name){
         this.inven = new ArrayList<>(); 
+        this.name = name; 
         this.filename = name + ".txt";
     }
     
