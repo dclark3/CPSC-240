@@ -101,8 +101,6 @@ public class FXMLSalesAssociateController implements Initializable {
         String s = DisplayInvoiceTextField.getText(); 
         int i = Integer.parseInt(s); 
         Invoice display = SalesAssociate.getInvoiceFac().getInvoice(i); 
-
-        //DisplayInvoiceTextArea.setText("Sales Invoice for " + Invoice.getCustomer());
         DisplayInvoiceTextArea.setText("Sales Invoice for " + display.getCustomer() + ", " + display.getFormattedDate());
         DisplayInvoiceTextArea.appendText("\n" + "Part Name" + "     " + "Part Number" + "     " + "Price" + "     " + "Sales Price" + "  " + "Qnty" + "   " + "Total Cost");
         for (int x = 0; x < display.getPartsArray().size(); x++)
@@ -115,7 +113,6 @@ public class FXMLSalesAssociateController implements Initializable {
            DisplayInvoiceTextArea.appendText("            " + (display.getPartsArray().get(x).getPrice() * display.getPartsArray().get(x).getQuantity()));
         }
         DisplayInvoiceTextArea.appendText("\n" + "Total:                                                                                           " +display.getTotal());
-        
     }
     
     @FXML
@@ -153,7 +150,6 @@ public class FXMLSalesAssociateController implements Initializable {
     private void InvoiceStartButtonAction(ActionEvent event)
     {
         Invoice in = SalesAssociate.invoiceFac.createInvoice(); 
-        InvoiceTextArea.setText(""); 
         InvoiceTextArea.setText("Invoice started"); 
         this.in = in;
     }  

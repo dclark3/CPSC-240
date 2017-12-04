@@ -65,12 +65,10 @@ public class Invoice
             total += in.getPrice() * quantity; 
             System.out.println("before its added " + in.getName() + " " + in.getQuantity());    //i was right here in the process
             inven.add(in); 
-            total += in.getPrice(); 
-            sa.getWarehouse().findPart(partNum).subtractQ(quantity); 
             System.out.println("after its added " + in.getName() + " " + in.getQuantity()); 
             //total += in.getPrice(); 
             sa.wh.findPart(partNum).subtractQ(quantity);
-            System.out.println("after2 its added " + in.getName() + " " + in.getQuantity());
+            System.out.println("after2 its added " + in.getName() + " " + in.getQuantity()); 
             output = true; 
         }
         else
@@ -124,6 +122,6 @@ public class Invoice
     
     public String getCustomer()
     {
-        return cust.getfname() + " " + cust.getlname(); 
-    }
+        return cust.getfname() + "" + cust.getlname(); 
+    }   
 }
