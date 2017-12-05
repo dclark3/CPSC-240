@@ -104,10 +104,10 @@ public class FXMLOfficeManController implements Initializable {
         String s = partToDisplayNameField.getText();
         Inventory p = BPD3.cmd.examinePart(s);
         if (p!=null){
-            partToDisplayTextAreaByName.appendText(p.toString());
+            partToDisplayTextAreaByName.appendText(p.toString() + "\n");
         }
         else {
-            partToDisplayTextAreaByName.appendText("Part not found");
+            partToDisplayTextAreaByName.appendText("Part not found\n");
         }
     }
     
