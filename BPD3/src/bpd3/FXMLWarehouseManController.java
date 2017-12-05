@@ -162,6 +162,7 @@ public class FXMLWarehouseManController implements Initializable {
     
     @FXML
     private void logOutButtonMethod(ActionEvent event) throws IOException {
+        FileStuff.writeEverythingToFile(); 
         Parent homePageParent = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         Scene homePageScene = new Scene(homePageParent);
         Stage projectStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

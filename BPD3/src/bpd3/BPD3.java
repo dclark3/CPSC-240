@@ -30,7 +30,11 @@ public class BPD3 extends Application {
     public static int minQuantity;
     public static Command cmd;
     
-    
+    /** starts all the methods for the fx
+     * 
+     * @param stage
+     * @throws Exception 
+     */
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
@@ -41,7 +45,7 @@ public class BPD3 extends Application {
         stage.show();
     }
 
-    /**
+    /** main method for the program
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -77,6 +81,12 @@ public class BPD3 extends Application {
         launch(args);
     }
     
+    /**Verifies the users information is correct
+     * 
+     * @param username
+     * @param password
+     * @return a loginAccount
+     */
     public static LoginAccount verifyUser(String username, String password){
         for (LoginAccount a: accounts){
             if (a.getUsername().equals(username) && a.getPassword().equals(password)){

@@ -116,8 +116,8 @@ public class FXMLSalesAssociateController implements Initializable {
            DisplayInvoiceTextArea.appendText("            " + display.getPartsArray().get(x).getNumber());
            DisplayInvoiceTextArea.appendText("               " + display.getPartsArray().get(x).getPrice());
            DisplayInvoiceTextArea.appendText("               " + display.getPartsArray().get(x).getsalePrice());
-           DisplayInvoiceTextArea.appendText("            " + display.getPartsArray().get(x).getQuantity());
-           DisplayInvoiceTextArea.appendText("            " + (display.getPartsArray().get(x).getPrice() * display.getPartsArray().get(x).getQuantity()));
+           DisplayInvoiceTextArea.appendText("          " + display.getPartsArray().get(x).getQuantity());
+           DisplayInvoiceTextArea.appendText("           " + (display.getPartsArray().get(x).getPrice() * display.getPartsArray().get(x).getQuantity()));
         }
         DisplayInvoiceTextArea.appendText("\n" + "Total:                                                                                           " +display.getTotal());
     }
@@ -210,11 +210,9 @@ public class FXMLSalesAssociateController implements Initializable {
         else
         {
             MoveFromVanTextArea.setText("Error"); 
-        }
-        
+        }       
     }
-    
-    
+       
     @FXML
     private void MoveFromMainButtonAction(ActionEvent event)
     {
