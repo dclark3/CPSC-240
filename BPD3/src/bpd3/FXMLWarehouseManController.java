@@ -91,6 +91,7 @@ public class FXMLWarehouseManController implements Initializable {
     @FXML
     private void SortNumButtonAction(ActionEvent event)
     {
+        SortNumTextArea.setText("");
         ArrayList<Inventory> inven = WarehouseMan.sortName();
         for (int i = 0; i <inven.size(); i++)
         {
@@ -101,6 +102,7 @@ public class FXMLWarehouseManController implements Initializable {
     @FXML
     private void SortNameButtonAction(ActionEvent event)
     {
+        SortNameTextArea.setText(""); 
         ArrayList<Inventory> inven = WarehouseMan.sortName();
         for (int i = 0; i <inven.size(); i++)
         {

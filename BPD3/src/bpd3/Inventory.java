@@ -56,10 +56,5 @@ public class Inventory extends BikePart {
             return listPrice;
         }
     }
-    
-    public void setQuantity(int input)
-    {
-        this.quantity = input; 
-    }
 
 }

@@ -101,7 +101,14 @@ public class FXMLSalesAssociateController implements Initializable {
         String s = DisplayInvoiceTextField.getText(); 
         int i = Integer.parseInt(s); 
         Invoice display = SalesAssociate.getInvoiceFac().getInvoice(i); 
-        DisplayInvoiceTextArea.setText("Sales Invoice for " + display.getCustomer() + ", " + display.getFormattedDate());
+        if (display.getCustomer() == null )
+        {
+            DisplayInvoiceTextArea.setText("no customer added");
+        }
+        else
+        {
+            DisplayInvoiceTextArea.setText("Sales Invoice for " + display.getCustomer() + ", " + display.getFormattedDate());
+        }
         DisplayInvoiceTextArea.appendText("\n" + "Part Name" + "     " + "Part Number" + "     " + "Price" + "     " + "Sales Price" + "  " + "Qnty" + "   " + "Total Cost");
         for (int x = 0; x < display.getPartsArray().size(); x++)
         {
