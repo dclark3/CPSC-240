@@ -36,6 +36,10 @@ public class InvoiceFactory
         }
     }
     
+    /**
+     * 
+     * @return 
+     */
     public Invoice createInvoice()
     {
         Invoice invoice = new Invoice(invoiceNumber++);

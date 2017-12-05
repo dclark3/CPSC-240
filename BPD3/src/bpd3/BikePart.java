@@ -79,6 +79,14 @@ public class BikePart {
         return partName;
     }
     
+    /**
+     * 
+     * @return this.partName + "," + 
+               this.partNumber  + "," + 
+               this.listPrice + "," +
+               this.salesPrice + "," +
+               this.onSale + ",";
+     */
     public String toString(){
         return this.partName + "," + 
                this.partNumber  + "," + 

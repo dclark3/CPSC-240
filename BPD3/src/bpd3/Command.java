@@ -11,6 +11,11 @@ package bpd3;
  */
 public class Command {
     
+    /** 
+     * 
+     * @param name
+     * @return part or null
+     */
     public Inventory examinePart(String name){
         Inventory part = BPD3.mainWarehouse.findPart(name);
         if (part!=null){

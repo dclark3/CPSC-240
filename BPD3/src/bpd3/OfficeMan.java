@@ -18,10 +18,23 @@ import java.util.Locale;
  */
 public class OfficeMan extends LoginAccount {
     
+    /** Constructs an OfficeMan
+     * 
+     * @param fName
+     * @param lName
+     * @param username
+     * @param password
+     * @param email 
+     */
     public OfficeMan(String fName, String lName, String username, String password, String email){
         super(fName, lName, username, password, email);
     }
     
+    /** Finds an inventory object based on the part name
+     * 
+     * @param name
+     * @return 
+     */
     public Inventory examinePart(String name){
         Inventory part = BPD3.mainWarehouse.findPart(name);
         if (part!=null){
@@ -30,6 +43,11 @@ public class OfficeMan extends LoginAccount {
         return null;
     }
     
+    /** Finds an
+     * 
+     * @param num
+     * @return 
+     */
     public Inventory examinePart(int num){
         Inventory part = BPD3.mainWarehouse.findPart(num);
         if (part!=null){
