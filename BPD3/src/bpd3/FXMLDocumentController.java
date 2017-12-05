@@ -42,7 +42,7 @@ public class FXMLDocumentController implements Initializable {
     private void handleButtonAction(ActionEvent event) throws IOException {
         
         String u = usernameField.getText();
-        String p = usernameField.getText();
+        String p = passwordField.getText();
         
         LoginAccount la = BPD3.verifyUser(u, p);
         
