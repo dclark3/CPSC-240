@@ -252,9 +252,32 @@ public class FXMLSysAdminController implements Initializable {
       String newpw = newpass.getText();
       String confirmnewpw = confirmnewpass.getText();
       if (newpw.equals(confirmnewpw)) {
+        if(user.equals(BPD3.wareMan.getUsername())) {
+          BPD3.wareMan.updatePassword(newpw);
       changepasslabel.setText("Change of password successful!");
       changepasslabel.getText();
   }
+       else if(user.equals(BPD3.offMan.getUsername())) {
+          BPD3.offMan.updatePassword(newpw);
+      changepasslabel.setText("Change of password successful!");
+      changepasslabel.getText();
+  }
+       else if(user.equals(BPD3.sa1.getUsername())) {
+          BPD3.sa2.updatePassword(newpw);
+      changepasslabel.setText("Change of password successful!");
+      changepasslabel.getText();
+  }
+      if(user.equals(BPD3.sa2.getUsername())) {
+      BPD3.sa2.updatePassword(newpw);
+      changepasslabel.setText("Change of password successful!");
+      changepasslabel.getText();
+  }
+       if(user.equals(BPD3.sa3.getUsername())) {
+      BPD3.sa3.updatePassword(newpw);
+      changepasslabel.setText("Change of password successful!");
+      changepasslabel.getText();
+  }
+      }
       else {
        changepasslabel.setText("Passwords do not match!");
        changepasslabel.getText();
