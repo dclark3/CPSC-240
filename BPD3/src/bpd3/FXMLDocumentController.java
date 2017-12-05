@@ -34,12 +34,14 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label errorMsg;
     
+    static String username;
+    static String password;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         
         String u = usernameField.getText();
-        String p = passwordField.getText();
+        String p = usernameField.getText();
         
         LoginAccount la = BPD3.verifyUser(u, p);
         
@@ -73,6 +75,8 @@ public class FXMLDocumentController implements Initializable {
         }
         
         else if (la instanceof SalesAssociate){
+            username = usernameField.getText();
+            password = usernameField.getText();
             Parent homePageParent = FXMLLoader.load(getClass().getResource("FXMLSalesAssociate.fxml"));
             Scene homePageScene = new Scene(homePageParent);
             Stage projectStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
