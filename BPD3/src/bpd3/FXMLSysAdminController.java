@@ -232,8 +232,8 @@ public class FXMLSysAdminController implements Initializable {
          String safname = firstnameSA.getText();
          String salname = lastnameSA.getText();
          String saun = userSA.getText();
-         Warehouse w = new Warehouse(SVname.getText());
-         System.out.println(SVname.getText()); 
+         String sv = SVname.getText();
+         Warehouse w = new Warehouse(sv);
          String wn = SVname.getText();
          SalesAssociate s = new SalesAssociate(safname,salname,saun,sapw,saemail,wn,w);
          BPD3.accounts.add(s);
@@ -259,7 +259,7 @@ public class FXMLSysAdminController implements Initializable {
       changepasslabel.setText("Change of password successful!");
       changepasslabel.getText();
   }
-       else if(user.equals(BPD3.offMan.getUsername())) {
+      else if(user.equals(BPD3.offMan.getUsername())) {
           BPD3.offMan.updatePassword(newpw);
       changepasslabel.setText("Change of password successful!");
       changepasslabel.getText();
@@ -269,12 +269,12 @@ public class FXMLSysAdminController implements Initializable {
       changepasslabel.setText("Change of password successful!");
       changepasslabel.getText();
   }
-      if(user.equals(BPD3.sa2.getUsername())) {
+    else if(user.equals(BPD3.sa2.getUsername())) {
       BPD3.sa2.updatePassword(newpw);
       changepasslabel.setText("Change of password successful!");
       changepasslabel.getText();
-  }
-       if(user.equals(BPD3.sa3.getUsername())) {
+  } 
+    else  if(user.equals(BPD3.sa3.getUsername())) {
       BPD3.sa3.updatePassword(newpw);
       changepasslabel.setText("Change of password successful!");
       changepasslabel.getText();
