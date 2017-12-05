@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author drado_000
+ * @author dan
  */
 public class FXMLWarehouseManController implements Initializable {
     

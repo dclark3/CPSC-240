@@ -18,8 +18,7 @@ public class WarehouseMan extends LoginAccount{
     public WarehouseMan(String fName, String lName, String username, String password, String email){
         super(fName, lName, username, password, email);
     }
-    
-    
+       
     //this method needs to update the mainwarehouse from a text file.
     //someone needs to check if this works also makes sure this will update part information
     public static String updateInventory(String filename)
@@ -28,7 +27,6 @@ public class WarehouseMan extends LoginAccount{
         return output; 
     }
    
-    
     public static String enter(String[] s)
     {
         System.out.println("check 1");
