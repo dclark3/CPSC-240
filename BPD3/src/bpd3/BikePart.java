@@ -17,6 +17,14 @@ public class BikePart {
     boolean onSale;
     
     //this method constructs bikepart objects
+    /**
+     * 
+     * @param partName
+     * @param partNumber
+     * @param listPrice
+     * @param salesPrice
+     * @param onSale 
+     */
     public BikePart (String partName, int partNumber, Double listPrice, Double salesPrice, Boolean onSale)   {
     this.partName = partName;
     this.partNumber = partNumber;

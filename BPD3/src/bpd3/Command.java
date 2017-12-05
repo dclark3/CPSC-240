@@ -24,6 +24,11 @@ public class Command {
         return null;
     }
     
+    /**
+     * this method examines a Inventory object
+     * @param num
+     * @return an Inventory object
+     */
     public Inventory examinePart(int num){
         Inventory part = BPD3.mainWarehouse.findPart(num);
         if (part!=null){

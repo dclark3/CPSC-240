@@ -99,7 +99,6 @@ public class Fleet {
     }
     
     /** Turns a fleet into a string
-     * 
      * @return listOFAllParts
      */
     @Override
