@@ -37,7 +37,7 @@ public class InvoiceFactory
     }
     
     /**
-     * 
+     *
      * @return 
      */
     public Invoice createInvoice()
