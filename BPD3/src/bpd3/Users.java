@@ -26,4 +26,14 @@ public class Users {
         }
         return null;
     }
+    
+    public static SalesAssociate getSa(String username)
+    {
+        for (SalesAssociate sa : salist){
+            if (sa.getUsername().equals(username)){
+                return sa;
+            }
+        }
+        return null;
+    }
 }

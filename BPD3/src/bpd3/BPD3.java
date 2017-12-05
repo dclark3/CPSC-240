@@ -64,7 +64,7 @@ public class BPD3 extends Application {
         fleet.addWarehouse(van1); 
         fleet.addWarehouse(van2);
         fleet.addWarehouse(van3);
-        fleet.addWarehouse(van4); 
+        fleet.addWarehouse(van4);
         
         admin = new SysAdmin("joe", "schmo", "admin", "abc", "email");
         offMan = new OfficeMan("jane", "doe", "office", "abc", "email");
@@ -81,6 +81,10 @@ public class BPD3 extends Application {
         accounts.add(sa2);
         accounts.add(sa3);
         accounts.add(sa4);
+        Users.salist.add(sa1);
+        Users.salist.add(sa2);
+        Users.salist.add(sa3);
+        Users.salist.add(sa4);
         cmd = new Command();
         
         Inventory b1 = new Inventory("saddle", 12345, 4.99, 2.99, true, 23784);

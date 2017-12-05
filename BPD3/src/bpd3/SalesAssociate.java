@@ -15,8 +15,8 @@ import java.util.Comparator;
  */
 public class SalesAssociate extends LoginAccount {
     String name;
-    static Warehouse wh; 
-    public static InvoiceFactory invoiceFac; 
+    Warehouse wh; 
+    public InvoiceFactory invoiceFac; 
     Invoice invoice; 
     
     /**constructs a sales associate
@@ -35,10 +35,11 @@ public class SalesAssociate extends LoginAccount {
                           String password, 
                           String email,
                           String name,
-                          Warehouse wh){
+                          Warehouse w
+                          ){
         
         super(fName, lName, username, password, email);
-        this.wh=wh;
+        this.wh= w;  
         this.name = name;
         InvoiceFactory invoiceFac = new InvoiceFactory(0); 
         this.invoiceFac = invoiceFac; 
@@ -68,7 +69,7 @@ public class SalesAssociate extends LoginAccount {
      * @param ware
      * @returns a formatted string
      */
-    public static String updateVan(String filename, Warehouse ware)
+    public String updateVan(String filename, Warehouse ware)
     { 
         String output = ""; 
         ArrayList<Inventory> inven = FileStuff.warehouseRead(filename);
@@ -97,7 +98,7 @@ public class SalesAssociate extends LoginAccount {
      * @param filename
      * @returns a formatted string of output
      */
-    public static String updateVanFromMain(String filename)
+    public String updateVanFromMain(String filename)
     {
         String output = FileStuff.moveParts(filename); 
         return output;
@@ -108,7 +109,7 @@ public class SalesAssociate extends LoginAccount {
      * @param filename
      * @returns a formatted string of output
      */
-    public static String updateVanFromVan(String filename)
+    public String updateVanFromVan(String filename)
     {
         String output = FileStuff.moveParts(filename); 
         return output;
@@ -128,7 +129,7 @@ public class SalesAssociate extends LoginAccount {
      * 
      * @returns an invoicefactory
      */
-    public static InvoiceFactory getInvoiceFac()
+    public InvoiceFactory getInvoiceFac()
     {
         return invoiceFac; 
     }
@@ -143,7 +144,7 @@ public class SalesAssociate extends LoginAccount {
      * @param num
      * @returns an inventory object
      */
-    public static Inventory findPart(int num)
+    public Inventory findPart(int num)
     {
         for (Inventory p : wh.getInventory()){
             if (p.getNumber() == num){
@@ -174,10 +175,10 @@ public class SalesAssociate extends LoginAccount {
      * 
      * @returns an arraylist of inventory
      */
-    public static ArrayList<Inventory> sortName()
+    public ArrayList<Inventory> sortName()
     {
         Comparator<Inventory> partsToComp = new PartCompareByName();
-        Collections.sort(wh.getInventory(), partsToComp);        
+        Collections.sort(wh.getInventory(), partsToComp);    
         return wh.getInventory();
     }
      
@@ -185,7 +186,7 @@ public class SalesAssociate extends LoginAccount {
      * 
      * @returns an arraylist of inventory 
      */
-    public static ArrayList<Inventory> sortNum()
+    public ArrayList<Inventory> sortNum()
     {
         Comparator<Inventory> partsToComp = new PartCompareByNum();
         Collections.sort(wh.getInventory(), partsToComp);        

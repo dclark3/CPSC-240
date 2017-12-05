@@ -28,6 +28,7 @@ import javafx.stage.Stage;
  */
 public class FXMLSalesAssociateController implements Initializable {
     private Invoice in; 
+    private SalesAssociate sa = Users.getSa(FXMLDocumentController.username); 
     
     @FXML
     private TextField MoveFromMainTextField;
@@ -100,7 +101,7 @@ public class FXMLSalesAssociateController implements Initializable {
     {
         String s = DisplayInvoiceTextField.getText(); 
         int i = Integer.parseInt(s); 
-        Invoice display = SalesAssociate.getInvoiceFac().getInvoice(i); 
+        Invoice display = sa.getInvoiceFac().getInvoice(i); 
         if (display.getCustomer() == null )
         {
             DisplayInvoiceTextArea.setText("no customer added");
@@ -156,7 +157,7 @@ public class FXMLSalesAssociateController implements Initializable {
     @FXML
     private void InvoiceStartButtonAction(ActionEvent event)
     {
-        Invoice in = SalesAssociate.invoiceFac.createInvoice(); 
+        Invoice in = sa.invoiceFac.createInvoice(); 
         InvoiceTextArea.setText("Invoice started"); 
         this.in = in;
     }  
@@ -164,7 +165,7 @@ public class FXMLSalesAssociateController implements Initializable {
     @FXML
     private void SortNumberButtonAction(ActionEvent event)
     {
-        ArrayList<Inventory> inven = SalesAssociate.sortNum(); 
+        ArrayList<Inventory> inven = sa.sortNum(); 
         if (inven != null)
         {
             for (int i = 0; i < inven.size(); i++)
@@ -181,7 +182,7 @@ public class FXMLSalesAssociateController implements Initializable {
     @FXML
     private void SortNameButtonAction(ActionEvent event)
     {
-        ArrayList<Inventory> inven = SalesAssociate.sortName(); 
+        ArrayList<Inventory> inven = sa.sortName(); 
         if (inven != null)
         {
             for (int i = 0; i < inven.size(); i++)
@@ -198,28 +199,24 @@ public class FXMLSalesAssociateController implements Initializable {
     @FXML
     private void MoveFromVanButtonAction(ActionEvent event)
     {
-        String file = MoveFromVanFileTextField.getText();
-        String str = MoveFromVanWarehouseTextField.getText(); 
-        Warehouse ware = BPD3.fleet.findWarehouse(str);
-        String Warehouse = MoveFromVanWarehouseTextField.getText(); 
-        
-        if (file != null && Warehouse != null)
+        String s = MoveFromVanFileTextField.getText(); 
+        if (s != null)
         {
-            MoveFromVanTextArea.setText(SalesAssociate.updateVan(file, ware)); 
+            MoveFromVanTextArea.setText (sa.updateVanFromVan(s)); 
         }
         else
         {
-            MoveFromVanTextArea.setText("Error"); 
-        }       
+            MoveFromVanTextArea.setText("error"); 
+        }
     }
        
     @FXML
     private void MoveFromMainButtonAction(ActionEvent event)
     {
-        String s = MoveFromMainTextField.getText();
+        String s = MoveFromMainTextField.getText(); 
         if (s != null)
         {
-            MoveFromMainTextArea.setText (SalesAssociate.updateVanFromMain(s)); 
+            MoveFromMainTextArea.setText (sa.updateVanFromMain(s)); 
         }
         else
         {

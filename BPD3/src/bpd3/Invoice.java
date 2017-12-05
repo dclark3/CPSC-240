@@ -18,7 +18,7 @@ public class Invoice
 {
     private int invoiceNumber; 
     private Date date;
-    private SalesAssociate sa; 
+    private SalesAssociate sa = Users.getSa(FXMLDocumentController.username);  //just added this
     private Customer cust; 
     private ArrayList<Inventory> inven;
     private double total;
@@ -29,11 +29,6 @@ public class Invoice
         this.invoiceNumber = num; 
         this.total = 0.0;
         date = new Date();       
-    }
-    
-    public void addSalesAssociate(SalesAssociate s)
-    {
-        this.sa=s;
     }
     
     public void addCustomer(String fname, String lname)

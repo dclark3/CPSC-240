@@ -36,10 +36,8 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="225.0" prefWidth="322.0">
                      <children>
                         <Label layoutX="35.0" layoutY="35.0" prefHeight="18.0" prefWidth="127.0" text="Enter a filename:" />
-                        <Label layoutX="35.0" layoutY="85.0" prefHeight="18.0" prefWidth="120.0" text="Enter a van name:" />
                         <TextField fx:id="MoveFromVanFileTextField" layoutX="170.0" layoutY="35.0" prefHeight="26.0" prefWidth="213.0" promptText="Enter a filename" />
-                        <TextField fx:id="MoveFromVanWarehouseTextField" layoutX="170.0" layoutY="85.0" prefHeight="26.0" prefWidth="214.0" promptText="Enter a van name" />
-                        <Button fx:id="MoveFromVanButton" layoutX="400.0" layoutY="85.0" mnemonicParsing="false" onAction="#MoveFromVanButtonAction" text="Submit" />
+                        <Button fx:id="MoveFromVanButton" layoutX="402.0" layoutY="35.0" mnemonicParsing="false" onAction="#MoveFromVanButtonAction" text="Submit" />
                         <TextArea fx:id="MoveFromVanTextArea" layoutX="11.0" layoutY="124.0" prefHeight="280.0" prefWidth="746.0" />
                      </children></AnchorPane>
                </content>
