@@ -63,9 +63,9 @@ public class BPD3 extends Application {
         admin = new SysAdmin("joe", "schmo", "admin", "abc", "email");
         offMan = new OfficeMan("jane", "doe", "office", "abc", "email");
         wareMan = new WarehouseMan("Sonny","Son", "ware", "abc", "email");
-        sa1 = new SalesAssociate("Bob", "B", "sa1", "abc", "email", "whName", van);
-        sa2 = new SalesAssociate("Sandra", "S", "sa2", "abc", "email", "whName", van);
-        sa3 = new SalesAssociate("Drew", "D", "sa3", "def", "email", "whName", van);
+        sa1 = new SalesAssociate("Bob", "Barnes", "sa1", "abc", "email", "whName", van);
+        sa2 = new SalesAssociate("Sandra", "Sandy", "sa2", "abc", "email", "whName", van);
+        sa3 = new SalesAssociate("Drew", "Donald", "sa3", "def", "email", "whName", van);
         
         accounts.add(admin);
         accounts.add(offMan);
