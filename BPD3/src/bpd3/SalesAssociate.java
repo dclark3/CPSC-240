@@ -28,12 +28,13 @@ public class SalesAssociate extends LoginAccount {
                           String lName,
                           String username, 
                           String password, 
-                          String email, String name, 
+                          String email,
+                          String name,
                           Warehouse wh){
         
         super(fName, lName, username, password, email);
-        this.name=name;
-        this.wh=wh; 
+        this.wh=wh;
+        this.name = name;
         InvoiceFactory invoiceFac = new InvoiceFactory(0); 
         this.invoiceFac = invoiceFac; 
     }
@@ -42,12 +43,7 @@ public class SalesAssociate extends LoginAccount {
     {
         return wh; 
     }
-    
-    public String getName()
-    {
-        return name; 
-    }
-    
+   
     //this is how the sales assocaite will add parts to its van from main
     //possible solution is just to make 2 methods to do this
     public static String updateVan(String filename, Warehouse ware) //need to decrease from main @@@@@@@@@
@@ -97,6 +93,11 @@ public class SalesAssociate extends LoginAccount {
         return invoiceFac; 
     }
     
+    public InvoiceFactory getFac()
+    {
+        return invoiceFac; 
+    }
+    
     public static Inventory findPart(int num){
         for (Inventory p : wh.getInventory()){
             if (p.getNumber() == num){
@@ -105,7 +106,6 @@ public class SalesAssociate extends LoginAccount {
         }
         return null;       
     }
-    
     
     //good example of decreasing the inventory
     public String addPartToInvoice(int partNum, int quantity)

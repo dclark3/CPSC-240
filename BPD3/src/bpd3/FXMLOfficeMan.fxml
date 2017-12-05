@@ -49,8 +49,8 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="startDateField" layoutX="234.0" layoutY="50.0" onAction="#getCommissionButtonMethod" promptText="Start date" />
-                        <TextField fx:id="endDateField" layoutX="402.0" layoutY="50.0" onAction="#getCommissionButtonMethod" promptText="End date" />
+                        <TextField fx:id="startDateField" layoutX="234.0" layoutY="50.0" onAction="#getCommissionButtonMethod" promptText="MM/DD/YYYY" />
+                        <TextField fx:id="endDateField" layoutX="402.0" layoutY="50.0" onAction="#getCommissionButtonMethod" promptText="MM/DD/YYYY" />
                         <TextArea fx:id="displayCommissionField" layoutX="34.0" layoutY="94.0" prefHeight="291.0" prefWidth="685.0" />
                         <TextField fx:id="saleAssociateNameField" layoutX="61.0" layoutY="50.0" onAction="#getCommissionButtonMethod" promptText="Sales Associate Name" />
                         <Button fx:id="generateCommissionButton" layoutX="573.0" layoutY="50.0" mnemonicParsing="false" onAction="#getCommissionButtonMethod" text="Generate Commission" />
