@@ -265,7 +265,7 @@ public class FXMLSysAdminController implements Initializable {
       changepasslabel.getText();
   }
        else if(user.equals(BPD3.sa1.getUsername())) {
-          BPD3.sa2.updatePassword(newpw);
+          BPD3.sa1.updatePassword(newpw);
       changepasslabel.setText("Change of password successful!");
       changepasslabel.getText();
   }
