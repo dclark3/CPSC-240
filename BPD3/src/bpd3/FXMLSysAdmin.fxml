@@ -26,12 +26,12 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="392.0" prefWidth="678.0">
                      <children>
                         <TextField fx:id="userOfficeMan" layoutX="137.0" layoutY="67.0" promptText="Username" />
-                        <Button fx:id="checkOfficeMan" layoutX="301.0" layoutY="67.0" mnemonicParsing="false" text="Check Username" />
+                        <Button fx:id="checkOfficeMan" layoutX="301.0" layoutY="67.0" mnemonicParsing="false" onAction="#checkOfficeManAction" text="Check Username" />
                         <Label fx:id="OfficeManlabel" layoutX="137.0" layoutY="103.0" textFill="#d00a0a" />
                         <TextField fx:id="firstnameOfficeMan" layoutX="137.0" layoutY="134.0" promptText="First Name" />
                         <TextField fx:id="lastnameOfficeMan" layoutX="138.0" layoutY="173.0" promptText="Last Name" />
                         <TextField fx:id="emailOfficeMan" layoutX="137.0" layoutY="239.0" promptText="Email Address" />
-                        <Button fx:id="createOfficeMan" layoutX="328.0" layoutY="264.0" mnemonicParsing="false" text="Create User" />
+                        <Button fx:id="createOfficeMan" layoutX="328.0" layoutY="264.0" mnemonicParsing="false" onAction="#createOfficeManAction" text="Create User" />
                         <PasswordField fx:id="passOfficeMan" layoutX="414.0" layoutY="148.0" promptText="Password" />
                         <PasswordField fx:id="confirmpassOfficeMan" layoutX="414.0" layoutY="198.0" promptText="Re-enter Password" />
                         <Label fx:id="createOfficeManlabel" layoutX="212.0" layoutY="301.0" textFill="#1e47ee" />
@@ -48,11 +48,11 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TextField fx:id="userWHman" layoutX="125.0" layoutY="77.0" promptText="Username" />
-                        <Button fx:id="checkWHman" layoutX="288.0" layoutY="77.0" mnemonicParsing="false" text="Check Username" />
+                        <Button fx:id="checkWHman" layoutX="288.0" layoutY="77.0" mnemonicParsing="false" onAction="#checkWHmanAction" text="Check Username" />
                         <TextField fx:id="firstnameWHman" layoutX="125.0" layoutY="148.0" promptText="First Name" />
                         <TextField fx:id="lastnameWHman" layoutX="125.0" layoutY="184.0" promptText="Last Name" />
                         <TextField fx:id="emailWHman" layoutX="125.0" layoutY="241.0" promptText="Email Address" />
-                        <Button fx:id="createWHman" layoutX="288.0" layoutY="272.0" mnemonicParsing="false" text="Create User" />
+                        <Button fx:id="createWHman" layoutX="288.0" layoutY="272.0" mnemonicParsing="false" onAction="#createWHmanAction" text="Create User" />
                         <Label fx:id="WHmanuserlabel" layoutX="125.0" layoutY="117.0" textFill="#d00a0a" />
                         <PasswordField fx:id="passWHman" layoutX="404.0" layoutY="172.0" promptText="Password" />
                         <PasswordField fx:id="confirmpassWHman" layoutX="404.0" layoutY="216.0" promptText="Re-enter Password" />
@@ -70,14 +70,14 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="335.0" prefWidth="644.0">
                      <children>
                         <TextField fx:id="userSA" layoutX="63.0" layoutY="55.0" promptText="Username" />
-                        <Button fx:id="checkSA" layoutX="220.0" layoutY="55.0" mnemonicParsing="false" text="Check Username" />
+                        <Button fx:id="checkSA" layoutX="220.0" layoutY="55.0" mnemonicParsing="false" onAction="#checkSAAction" text="Check Username" />
                         <TextField fx:id="firstnameSA" layoutX="137.0" layoutY="153.0" promptText="First Name" />
                         <TextField fx:id="lastnameSA" layoutX="137.0" layoutY="186.0" promptText="Last Name" />
                         <TextField fx:id="emailSA" layoutX="138.0" layoutY="246.0" promptText="Email Address" />
-                        <Button fx:id="createSA" layoutX="272.0" layoutY="278.0" mnemonicParsing="false" text="Create User" />
+                        <Button fx:id="createSA" layoutX="272.0" layoutY="278.0" mnemonicParsing="false" onAction="#createSAAction" text="Create User" />
                         <Label fx:id="SAlabel" layoutX="114.0" layoutY="89.0" textFill="#d00a0a" />
                         <TextField fx:id="SVname" layoutX="360.0" layoutY="55.0" promptText="Sales Van" />
-                        <Button fx:id="checkSV" layoutX="517.0" layoutY="55.0" mnemonicParsing="false" text="Check Name" />
+                        <Button fx:id="checkSV" layoutX="517.0" layoutY="55.0" mnemonicParsing="false" onAction="#checkSVAction" text="Check Name" />
                         <Label fx:id="SVlabel" layoutX="421.0" layoutY="89.0" textFill="#d00a0a" />
                         <PasswordField fx:id="passSA" layoutX="408.0" layoutY="186.0" promptText="Password" />
                         <PasswordField fx:id="confirmpassSA" layoutX="408.0" layoutY="221.0" promptText="Re-enter Password" />
@@ -102,7 +102,7 @@
                         <Text layoutX="152.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter New Password" />
                         <TextField fx:id="changepassUser" layoutX="131.0" layoutY="49.0" promptText="Username" />
                         <Text layoutX="131.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter user you want to change" />
-                        <Button fx:id="changepass" layoutX="321.0" layoutY="206.0" mnemonicParsing="false" text="Change Password" />
+                        <Button fx:id="changepass" layoutX="321.0" layoutY="206.0" mnemonicParsing="false" onAction="#changepassAction" text="Change Password" />
                         <Label fx:id="changepasslabel" layoutX="165.0" layoutY="285.0" textFill="#1e47ee" />
                         <PasswordField fx:id="newpass" layoutX="132.0" layoutY="173.0" promptText="New Password" />
                         <PasswordField fx:id="confirmnewpass" layoutX="131.0" layoutY="218.0" promptText="Confirm Password" />
@@ -115,7 +115,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="393.0" prefWidth="750.0">
                      <children>
                         <TextField fx:id="deleteuser" layoutX="55.0" layoutY="61.0" promptText="Username" />
-                        <Button fx:id="confirmdeleteuser" layoutX="243.0" layoutY="131.0" mnemonicParsing="false" text="Delete User" />
+                        <Button fx:id="confirmdeleteuser" layoutX="243.0" layoutY="131.0" mnemonicParsing="false" onAction="#confirmdeleteuserAction" text="Delete User" />
                         <Text layoutX="56.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username of User to Delete" />
                         <Text layoutX="55.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the System Administrator Password" />
                         <Label fx:id="deleteuserlabel" layoutX="130.0" layoutY="244.0" textFill="#1e47ee" />
@@ -132,7 +132,7 @@
                         <TextField fx:id="changefirstname" layoutX="115.0" layoutY="68.0" promptText="First Name" />
                         <TextField fx:id="changelastname" layoutX="115.0" layoutY="114.0" promptText="Last Name" />
                         <TextField fx:id="changeemail" layoutX="115.0" layoutY="177.0" promptText="Email" />
-                        <Button fx:id="changeuserinfo" layoutX="359.0" layoutY="127.0" mnemonicParsing="false" text="Change User Information" />
+                        <Button fx:id="changeuserinfo" layoutX="359.0" layoutY="127.0" mnemonicParsing="false" onAction="#changeuserinfoAction" text="Change User Information" />
                         <Label layoutX="101.0" layoutY="327.0" textFill="#1e47ee" />
                      </children>
                   </AnchorPane>

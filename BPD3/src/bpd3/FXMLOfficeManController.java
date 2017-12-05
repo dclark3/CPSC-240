@@ -7,6 +7,7 @@ package bpd3;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -131,13 +132,19 @@ public class FXMLOfficeManController implements Initializable {
                 partsToOrder = p + "\n" + partsToOrder;
             }
         }
-        displayTextField.setText(partsToOrder);
+//        displayTextField.setText(partsToOrder);
         
     }
     
     @FXML
-    void getCommissionButtonMethod(ActionEvent event) {
-
+    void getCommissionButtonMethod(ActionEvent event) throws ParseException {
+        String saName = saleAssociateNameField.getText();
+        String sd = startDateField.getText();
+        String ed = endDateField.getText();
+        
+        double com = BPD3.offMan.getCommission(sd, ed, saName);
+        displayCommissionField.setText(saName + " will receive "  + String.format("$%.2f", com));
+        
     }
     
     @FXML

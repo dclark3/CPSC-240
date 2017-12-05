@@ -130,7 +130,7 @@ public class FXMLSalesAssociateController implements Initializable {
         InvoiceTextArea.setText("You have created Invoice: " + in.getNumber()); 
     }
     
-    @FXML
+     @FXML
     private void InvoiceAddButtonAction(ActionEvent event)
     {
         String s1 = InvoiceTextField.getText();

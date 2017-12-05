@@ -28,8 +28,7 @@ public class SalesAssociate extends LoginAccount {
                           String lName,
                           String username, 
                           String password, 
-                          String email, 
-                          String name, 
+                          String email, String name, 
                           Warehouse wh){
         
         super(fName, lName, username, password, email);

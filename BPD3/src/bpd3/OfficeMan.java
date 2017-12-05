@@ -6,9 +6,11 @@
 package bpd3;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  *
@@ -47,10 +49,29 @@ public class OfficeMan extends LoginAccount {
         }
         return partsToOrder;
     }
-    /*
-    public String getCommission(String startDate, String endDate, String saName){
+    
+    public double getCommission(String startDate, String endDate, String saName) throws ParseException{
         
-        
+       InvoiceFactory inf = BPD3.sa.getInvoiceFac();
+       ArrayList<Invoice> commission = new ArrayList<>();
+       double total = 0;
+       
+        DateFormat df = new SimpleDateFormat("MMM dd yyyy", Locale.ENGLISH);
+        Date sd =  df.parse(startDate); 
+        Date ed = df.parse(endDate);
+       
+       for (Invoice i : inf.getInvList()){
+           if (i.getDate().after(sd) && i.getDate().before(ed)){
+               commission.add(i);
+           }
+       }
+       
+       for (Invoice i : commission){
+           total = total + i.getTotal();
+       }
+       
+       total = total * .15;
+       
+       return total;
     }
-    */
 }

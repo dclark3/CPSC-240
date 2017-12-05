@@ -103,6 +103,10 @@ public class Invoice
         return invoiceNumber;
     }
     
+    public Date getDate(){
+        return date;
+    }
+    
     public String getFormattedDate()
     {
         DateFormat setTime = new SimpleDateFormat("EEE, d MMM yyyy");
