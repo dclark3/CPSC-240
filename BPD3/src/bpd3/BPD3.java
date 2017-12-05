@@ -23,7 +23,9 @@ public class BPD3 extends Application {
     public static SysAdmin admin;
     public static OfficeMan offMan;
     public static WarehouseMan wareMan;
-    public static SalesAssociate sa;
+    public static SalesAssociate sa1;
+    public static SalesAssociate sa2;
+    public static SalesAssociate sa3;
     public static Warehouse mainWarehouse;
     public static Fleet fleet;
     public static ArrayList <LoginAccount> accounts = new ArrayList<>();
@@ -54,15 +56,19 @@ public class BPD3 extends Application {
         fleet.addWarehouse(mainWarehouse);
         fleet.addWarehouse(van); 
         
-        admin = new SysAdmin("joe", "schmo", "abc", "def", "email");
-        offMan = new OfficeMan("jane", "doe", "ghi", "jkl", "email");
-        wareMan = new WarehouseMan("","", "mno", "pqr", "email");
-        sa = new SalesAssociate("", "", "stu", "vwx", "email", "whName", van);
+        admin = new SysAdmin("joe", "schmo", "admin", "abc", "email");
+        offMan = new OfficeMan("jane", "doe", "office", "abc", "email");
+        wareMan = new WarehouseMan("Sonny","Son", "ware", "abc", "email");
+        sa1 = new SalesAssociate("Bob", "B", "sa1", "abc", "email", "whName", van);
+        sa2 = new SalesAssociate("Sandra", "S", "sa2", "abc", "email", "whName", van);
+        sa3 = new SalesAssociate("Drew", "D", "sa3", "def", "email", "whName", van);
         
         accounts.add(admin);
         accounts.add(offMan);
         accounts.add(wareMan);
-        accounts.add(sa);
+        accounts.add(sa1);
+        accounts.add(sa2);
+        accounts.add(sa3);
         
         minQuantity = 5;
         cmd = new Command();
