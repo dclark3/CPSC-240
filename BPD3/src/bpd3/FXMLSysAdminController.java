@@ -279,6 +279,11 @@ public class FXMLSysAdminController implements Initializable {
       changepasslabel.setText("Change of password successful!");
       changepasslabel.getText();
   }
+         else  if(user.equals(BPD3.sa4.getUsername())) {
+      BPD3.sa4.updatePassword(newpw);
+      changepasslabel.setText("Change of password successful!");
+      changepasslabel.getText();
+  }
       }
       else {
        changepasslabel.setText("Passwords do not match!");
@@ -316,6 +321,11 @@ public class FXMLSysAdminController implements Initializable {
           deleteuserlabel.setText( delete + " successfully deleted!");
           deleteuserlabel.getText();
       }
+            else if(delete.equals(BPD3.sa4.getUsername())) {
+          BPD3.sa4.updatePassword("delete");
+          deleteuserlabel.setText( delete + " successfully deleted!");
+          deleteuserlabel.getText();
+      }
           }
       else {
           deleteuserlabel.setText("System admin pass wrong! Try again.");
@@ -347,7 +357,8 @@ protected void changeuserinfoAction(ActionEvent event) {
     private void displayallusersAction(ActionEvent event) {
         
         userlistarea.setText(" Username: " +BPD3.admin.getUsername() + " First Name: "  + BPD3.admin.getFName() +  " Last Name: " + BPD3.admin.getLName() +"\n Username: " + BPD3.offMan.getUsername() +  " First Name: " + BPD3.offMan.getFName() + " Last Name:  " + BPD3.offMan.getLName() 
-                +"\n Username: " + BPD3.wareMan.getUsername() + " First Name: " + BPD3.wareMan.getFName() +  " Last Name: " + BPD3.wareMan.getLName() +"\n Username: " +BPD3.sa1.getUsername() + " First Name: "  + BPD3.sa1.getFName() +  " Last Name: " + BPD3.sa1.getLName() +"\n Username: "  +BPD3.sa2.getUsername() + " First Name: "  + BPD3.sa2.getFName() +  " Last Name: " + BPD3.sa2.getLName() );
+                +"\n Username: " + BPD3.wareMan.getUsername() + " First Name: " + BPD3.wareMan.getFName() +  " Last Name: " + BPD3.wareMan.getLName() +"\n Username: " +BPD3.sa1.getUsername() + " First Name: "  + BPD3.sa1.getFName() +  " Last Name: " + BPD3.sa1.getLName() +"\n Username: "  
+                +BPD3.sa2.getUsername() + " First Name: "  + BPD3.sa2.getFName() +  " Last Name: " + BPD3.sa2.getLName() + "\n Username: " +BPD3.sa3.getUsername() + " First Name: "  + BPD3.sa3.getFName() +  " Last Name: " + BPD3.sa3.getLName() );
         
     }
     

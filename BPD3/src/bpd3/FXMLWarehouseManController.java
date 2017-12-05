@@ -92,7 +92,7 @@ public class FXMLWarehouseManController implements Initializable {
     private void SortNumButtonAction(ActionEvent event)
     {
         SortNumTextArea.setText("");
-        ArrayList<Inventory> inven = WarehouseMan.sortName();
+        ArrayList<Inventory> inven = WarehouseMan.sortNum();
         for (int i = 0; i <inven.size(); i++)
         {
             SortNumTextArea.appendText(inven.get(i).getNumber() + ", " + inven.get(i).getName() + ", " + inven.get(i).getlistPrice() + ", " + inven.get(i).getsalePrice() + ", " + inven.get(i).getonSale() + ", " + inven.get(i).getQuantity() + '\n'); 

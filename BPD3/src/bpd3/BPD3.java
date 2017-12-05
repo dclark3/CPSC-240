@@ -26,6 +26,7 @@ public class BPD3 extends Application {
     public static SalesAssociate sa1;
     public static SalesAssociate sa2;
     public static SalesAssociate sa3;
+    public static SalesAssociate sa4;
     public static Warehouse mainWarehouse;
     public static Fleet fleet;
     public static ArrayList <LoginAccount> accounts = new ArrayList<>();
@@ -55,16 +56,23 @@ public class BPD3 extends Application {
      
         fleet = new Fleet(f);  
         mainWarehouse = new Warehouse("mainWarehouse");
-        Warehouse van = new Warehouse("van"); 
+        Warehouse van1 = new Warehouse("van1");
+        Warehouse van2 = new Warehouse("van2");
+        Warehouse van3 = new Warehouse("van3");
+        Warehouse van4 = new Warehouse("van4"); 
         fleet.addWarehouse(mainWarehouse);
-        fleet.addWarehouse(van); 
+        fleet.addWarehouse(van1); 
+        fleet.addWarehouse(van2);
+        fleet.addWarehouse(van3);
+        fleet.addWarehouse(van4);
         
         admin = new SysAdmin("joe", "schmo", "admin", "abc", "email");
         offMan = new OfficeMan("jane", "doe", "office", "abc", "email");
         wareMan = new WarehouseMan("Sonny","Son", "ware", "abc", "email");
-        sa1 = new SalesAssociate("Bob", "Barnes", "sa1", "abc", "email", "whName", van);
-        sa2 = new SalesAssociate("Sandra", "Sandy", "sa2", "abc", "email", "whName", van);
-        sa3 = new SalesAssociate("Drew", "Donald", "sa3", "def", "email", "whName", van);
+        sa1 = new SalesAssociate("Bob", "Barnes", "sa1", "abc", "email", "whName1", van1);
+        sa2 = new SalesAssociate("Sandra", "Sandy", "sa2", "abc", "email", "whName2", van2);
+        sa3 = new SalesAssociate("Drew", "Donald", "sa3", "abc", "email", "whName3", van3);
+        sa4 = new SalesAssociate("", "", "sa4","def","","", van4);
         
         accounts.add(admin);
         accounts.add(offMan);
@@ -72,7 +80,11 @@ public class BPD3 extends Application {
         accounts.add(sa1);
         accounts.add(sa2);
         accounts.add(sa3);
-        
+        accounts.add(sa4);
+        Users.salist.add(sa1);
+        Users.salist.add(sa2);
+        Users.salist.add(sa3);
+        Users.salist.add(sa4);
         cmd = new Command();
         
         Inventory b1 = new Inventory("saddle", 12345, 4.99, 2.99, true, 23784);

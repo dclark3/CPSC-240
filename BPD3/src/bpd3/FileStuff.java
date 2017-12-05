@@ -126,7 +126,7 @@ public class FileStuff {
                                                        part1.getsalePrice(),
                                                        part1.getonSale(),
                                                        q);
-                        toW.addPart(part);
+                        toW.addPart(part);                        
                         part1.subtractQ(q);
                     }
                     else if (part1 != null && part2 != null){
