@@ -23,13 +23,19 @@ public class BPD3 extends Application {
     public static SysAdmin admin;
     public static OfficeMan offMan;
     public static WarehouseMan wareMan;
-    public static SalesAssociate sa;
+    public static SalesAssociate sa1;
+    public static SalesAssociate sa2;
+    public static SalesAssociate sa3;
     public static Warehouse mainWarehouse;
     public static Fleet fleet;
     public static ArrayList <LoginAccount> accounts = new ArrayList<>();
     public static Command cmd;
     
-    
+    /** starts all the methods for the fx
+     * 
+     * @param stage
+     * @throws Exception 
+     */
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
@@ -40,7 +46,7 @@ public class BPD3 extends Application {
         stage.show();
     }
 
-    /**
+    /** main method for the program
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -53,16 +59,19 @@ public class BPD3 extends Application {
         fleet.addWarehouse(mainWarehouse);
         fleet.addWarehouse(van); 
         
-        admin = new SysAdmin("joe", "schmo", "abc", "def", "email");
-        offMan = new OfficeMan("jane", "doe", "ghi", "jkl", "email");
-        wareMan = new WarehouseMan("Peter","Parker", "mno", "pqr", "email");
-        sa = new SalesAssociate("Mary", "Jane", "stu", "vwx", "email", "whName", van);
-        Users.salist.add(sa);
+        admin = new SysAdmin("joe", "schmo", "admin", "abc", "email");
+        offMan = new OfficeMan("jane", "doe", "office", "abc", "email");
+        wareMan = new WarehouseMan("Sonny","Son", "ware", "abc", "email");
+        sa1 = new SalesAssociate("Bob", "Barnes", "sa1", "abc", "email", "whName", van);
+        sa2 = new SalesAssociate("Sandra", "Sandy", "sa2", "abc", "email", "whName", van);
+        sa3 = new SalesAssociate("Drew", "Donald", "sa3", "def", "email", "whName", van);
         
         accounts.add(admin);
         accounts.add(offMan);
         accounts.add(wareMan);
-        accounts.add(sa);
+        accounts.add(sa1);
+        accounts.add(sa2);
+        accounts.add(sa3);
         
         cmd = new Command();
         
@@ -75,6 +84,12 @@ public class BPD3 extends Application {
         launch(args);
     }
     
+    /**Verifies the users information is correct
+     * 
+     * @param username
+     * @param password
+     * @return a loginAccount
+     */
     public static LoginAccount verifyUser(String username, String password){
         for (LoginAccount a: accounts){
             if (a.getUsername().equals(username) && a.getPassword().equals(password)){

@@ -28,8 +28,7 @@ public class Invoice
         this.inven = new ArrayList<>();
         this.invoiceNumber = num; 
         this.total = 0.0;
-        date = new Date();
-        
+        date = new Date();       
     }
     
     public void addSalesAssociate(SalesAssociate s)
@@ -42,14 +41,12 @@ public class Invoice
         this.cust= new Customer(fname, lname); 
     }
     
-    //need to decrease the quantity in the sales associate warehouse @@@@@@@@@@@@@@@@@@@@ look in the sales assocaite class
     public String addSinglePart(int partNum, int quantity)
     {
         Warehouse wh = sa.getWarehouse();
         BikePart bp = wh.findPart(partNum); 
         Inventory inv = new Inventory(bp.getName(), bp.getNumber(), bp.getlistPrice(), bp.getsalePrice(), bp.getonSale(), quantity); 
         inven.add(inv); 
-        //total += inv.getPrice();
         return "part added"; 
     }
     
@@ -57,27 +54,18 @@ public class Invoice
     {     
         boolean output = false;
         Inventory in = sa.wh.findPart(partNum); 
-        System.out.println(quantity);
-        in.setQuantity(quantity);
-        System.out.println(in.getQuantity()); 
         if (in != null)
         {
             total += in.getPrice() * quantity; 
-            System.out.println("before its added " + in.getName() + " " + in.getQuantity());    //i was right here in the process
-            inven.add(in); 
-            System.out.println("after its added " + in.getName() + " " + in.getQuantity()); 
-            //total += in.getPrice(); 
-            sa.wh.findPart(partNum).subtractQ(quantity);
-            System.out.println("after2 its added " + in.getName() + " " + in.getQuantity()); 
+            BikePart bp = new BikePart(in.getName(), in.getNumber(), in.getlistPrice(), in.getsalePrice(), in.getonSale()); 
+            Inventory invoiceIn = Warehouse.makeInventory(bp, quantity); 
+            inven.add(invoiceIn); 
+            in.updateQ(in.getQuantity() - quantity);  
             output = true; 
         }
         else
         {
             output = false; 
-        }
-        for (int i =0; i < inven.size(); i++)  //when it gets down to here the quantity is wrong
-        {
-            System.out.println(inven.get(i).getName() + " " + inven.get(i).getQuantity()); 
         }
         return output; 
     }
@@ -122,6 +110,13 @@ public class Invoice
     
     public String getCustomer()
     {
-        return cust.getfname() + "" + cust.getlname(); 
+        if (cust.getfname() == null || cust.getlname() == null)
+        {
+            return "no customer found";
+        }
+        else
+        {
+            return cust.getfname() + "" + cust.getlname(); 
+        }
     }   
 }

@@ -73,5 +73,11 @@ public class Warehouse {
         return part;
     }
     
+    public static Inventory makeInventory(BikePart b, int q)
+    {
+        Inventory output = new Inventory(b.getName(), b.getNumber(), b.getlistPrice(), b.getsalePrice(), b.getonSale(), q);
+        return output; 
+    }
+    
 
 }

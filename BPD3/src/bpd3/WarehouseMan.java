@@ -19,16 +19,22 @@ public class WarehouseMan extends LoginAccount{
         super(fName, lName, username, password, email);
     }
     
-    
-    //this method needs to update the mainwarehouse from a text file.
-    //someone needs to check if this works also makes sure this will update part information
+    /** updates the inventory from a filename
+     * 
+     * @param filename
+     * @returns a formatted string
+     */
     public static String updateInventory(String filename)
     {
         String output = FileStuff.readFile(BPD3.mainWarehouse.getInventory(), filename);  
         return output; 
     }
    
-    
+    /**enters a new bikepart into the mainwarehouse
+     * 
+     * @param s
+     * @returns the output as a string
+     */
     public static String enter(String[] s)
     {
         System.out.println("check 1");
@@ -66,7 +72,11 @@ public class WarehouseMan extends LoginAccount{
         
         return output;
     }
-
+    
+    /**sorts the mainwarehouse by name
+     * 
+     * @return an arraylist of inventory
+     */
     public static ArrayList<Inventory> sortName()
     {
         Comparator<Inventory> partsToComp = new PartCompareByName();
@@ -74,10 +84,15 @@ public class WarehouseMan extends LoginAccount{
         return BPD3.mainWarehouse.getInventory();
     }
     
+    /**sorts the main warehouse by number 
+     * 
+     * @return an arrayList of inventory 
+     */
     public static ArrayList<Inventory> sortNum()
     {
         Comparator<Inventory> partsToComp = new PartCompareByNum();
         Collections.sort(BPD3.mainWarehouse.getInventory(), partsToComp);        
         return BPD3.mainWarehouse.getInventory();
     }
+    
 }

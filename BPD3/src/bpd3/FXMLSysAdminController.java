@@ -21,6 +21,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import javafx.scene.control.TextArea;
 /**
  * FXML Controller class
  *
@@ -124,6 +125,10 @@ public class FXMLSysAdminController implements Initializable {
     private TextField changeemail;
     @FXML
     private Button changeuserinfo;
+    @FXML
+    private TextArea userlistarea;
+    @FXML
+    private Button userbutton;
     
     
     @FXML
@@ -167,6 +172,7 @@ public class FXMLSysAdminController implements Initializable {
      @FXML
  protected void checkWHmanAction(ActionEvent event) throws IOException {
       String whun = userWHman.getText();
+      
       if (BPD3.accounts.contains(whun)) {
           WHmanuserlabel.setText("Sorry, user already exists");
            }
@@ -197,6 +203,7 @@ public class FXMLSysAdminController implements Initializable {
       @FXML
   protected void checkSAAction(ActionEvent event) throws IOException {
       String saun = userSA.getText();
+     
       if (BPD3.accounts.contains(saun)) {
           SAlabel.setText("Sorry, user already exists");
           SAlabel.getText();
@@ -208,7 +215,7 @@ public class FXMLSysAdminController implements Initializable {
       @FXML
   protected void checkSVAction(ActionEvent event) throws IOException {
       String SV = SVname.getText();
-      if (BPD3.accounts.contains(SV)) {
+      if (Users.salist.contains(SV)) {
           SVlabel.setText("Sorry, van already exists");
           SVlabel.getText();
            }
@@ -245,10 +252,32 @@ public class FXMLSysAdminController implements Initializable {
       String newpw = newpass.getText();
       String confirmnewpw = confirmnewpass.getText();
       if (newpw.equals(confirmnewpw)) {
-      //BPD3.accounts.updatePassword(newpw);
+        if(user.equals(BPD3.wareMan.getUsername())) {
+          BPD3.wareMan.updatePassword(newpw);
       changepasslabel.setText("Change of password successful!");
       changepasslabel.getText();
   }
+       else if(user.equals(BPD3.offMan.getUsername())) {
+          BPD3.offMan.updatePassword(newpw);
+      changepasslabel.setText("Change of password successful!");
+      changepasslabel.getText();
+  }
+       else if(user.equals(BPD3.sa1.getUsername())) {
+          BPD3.sa2.updatePassword(newpw);
+      changepasslabel.setText("Change of password successful!");
+      changepasslabel.getText();
+  }
+      if(user.equals(BPD3.sa2.getUsername())) {
+      BPD3.sa2.updatePassword(newpw);
+      changepasslabel.setText("Change of password successful!");
+      changepasslabel.getText();
+  }
+       if(user.equals(BPD3.sa3.getUsername())) {
+      BPD3.sa3.updatePassword(newpw);
+      changepasslabel.setText("Change of password successful!");
+      changepasslabel.getText();
+  }
+      }
       else {
        changepasslabel.setText("Passwords do not match!");
        changepasslabel.getText();
@@ -259,11 +288,33 @@ public class FXMLSysAdminController implements Initializable {
       String delete = deleteuser.getText();
       String adminpass = systemadminpass.getText();
       String confirmadminpass = confirmsystemadminpass.getText();
-      if (adminpass.equals(confirmadminpass)) {
-          BPD3.accounts.remove(delete);
+      if (adminpass.equals(BPD3.admin.getPassword()) && confirmadminpass.equals(BPD3.admin.getPassword()))  {
+          if(delete.equals(BPD3.wareMan.getUsername())) {
+          BPD3.wareMan.updatePassword("delete");
           deleteuserlabel.setText( delete + " successfully deleted!");
           deleteuserlabel.getText();
       }
+          else if(delete.equals(BPD3.offMan.getUsername())) {
+          BPD3.offMan.updatePassword("delete");
+          deleteuserlabel.setText( delete + " successfully deleted!");
+          deleteuserlabel.getText();
+      }
+          else if(delete.equals(BPD3.sa1.getUsername())) {
+          BPD3.sa1.updatePassword("delete");
+          deleteuserlabel.setText( delete + " successfully deleted!");
+          deleteuserlabel.getText();
+      }
+            else if(delete.equals(BPD3.sa2.getUsername())) {
+          BPD3.sa2.updatePassword("delete");
+          deleteuserlabel.setText( delete + " successfully deleted!");
+          deleteuserlabel.getText();
+      }
+            else if(delete.equals(BPD3.sa3.getUsername())) {
+          BPD3.sa3.updatePassword("delete");
+          deleteuserlabel.setText( delete + " successfully deleted!");
+          deleteuserlabel.getText();
+      }
+          }
       else {
           deleteuserlabel.setText("System admin pass wrong! Try again.");
           deleteuserlabel.getText();
@@ -284,7 +335,18 @@ protected void changeuserinfoAction(ActionEvent event) {
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       // checkOfficeMan.setOnAction(this::checkOfficeMan);
+          changefirstname.setText(BPD3.admin.getFName());
+        changelastname.setText(BPD3.admin.getLName());
+        changeemail.setText(BPD3.admin.getEmail());
+        
     }    
+
+    @FXML
+    private void displayallusersAction(ActionEvent event) {
+        
+        userlistarea.setText(" Username: " +BPD3.admin.getUsername() + " First Name: "  + BPD3.admin.getFName() +  " Last Name: " + BPD3.admin.getLName() +"\n Username: " + BPD3.offMan.getUsername() +  " First Name: " + BPD3.offMan.getFName() + " Last Name:  " + BPD3.offMan.getLName() 
+                +"\n Username: " + BPD3.wareMan.getUsername() + " First Name: " + BPD3.wareMan.getFName() +  " Last Name: " + BPD3.wareMan.getLName() +"\n Username: " +BPD3.sa1.getUsername() + " First Name: "  + BPD3.sa1.getFName() +  " Last Name: " + BPD3.sa1.getLName() +"\n Username: "  +BPD3.sa2.getUsername() + " First Name: "  + BPD3.sa2.getFName() +  " Last Name: " + BPD3.sa2.getLName() );
+        
+    }
     
 }

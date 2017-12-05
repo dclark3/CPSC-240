@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author drado_000
+ * @author dan
  */
 public class FXMLWarehouseManController implements Initializable {
     
@@ -91,6 +91,7 @@ public class FXMLWarehouseManController implements Initializable {
     @FXML
     private void SortNumButtonAction(ActionEvent event)
     {
+        SortNumTextArea.setText("");
         ArrayList<Inventory> inven = WarehouseMan.sortName();
         for (int i = 0; i <inven.size(); i++)
         {
@@ -101,6 +102,7 @@ public class FXMLWarehouseManController implements Initializable {
     @FXML
     private void SortNameButtonAction(ActionEvent event)
     {
+        SortNameTextArea.setText(""); 
         ArrayList<Inventory> inven = WarehouseMan.sortName();
         for (int i = 0; i <inven.size(); i++)
         {
@@ -160,6 +162,7 @@ public class FXMLWarehouseManController implements Initializable {
     
     @FXML
     private void logOutButtonMethod(ActionEvent event) throws IOException {
+        FileStuff.writeEverythingToFile(); 
         Parent homePageParent = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         Scene homePageScene = new Scene(homePageParent);
         Stage projectStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

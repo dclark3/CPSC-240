@@ -176,12 +176,9 @@ public class FileStuff {
             }   
             
             bufferedWriter1.close(); 
-        }
-        
+        }        
         catch (IOException ex){
             ex.printStackTrace();
-        }
-        
+        }   
     }
-
 }
