@@ -52,7 +52,7 @@ public class OfficeMan extends LoginAccount {
     
     public double getCommission(String startDate, String endDate, String saName) throws ParseException{
         
-       InvoiceFactory inf = BPD3.sa.getInvoiceFac();
+       InvoiceFactory inf = BPD3.sa1.getInvoiceFac();
        ArrayList<Invoice> commission = new ArrayList<>();
        double total = 0;
        
