@@ -55,9 +55,9 @@ public class BPD3 extends Application {
      
         fleet = new Fleet(f);  
         mainWarehouse = new Warehouse("mainWarehouse");
-        Warehouse van1 = new Warehouse("van");
-        Warehouse van2 = new Warehouse("van");
-        Warehouse van3 = new Warehouse("van");
+        Warehouse van1 = new Warehouse("van1");
+        Warehouse van2 = new Warehouse("van2");
+        Warehouse van3 = new Warehouse("van3");
         fleet.addWarehouse(mainWarehouse);
         fleet.addWarehouse(van1); 
         fleet.addWarehouse(van2);

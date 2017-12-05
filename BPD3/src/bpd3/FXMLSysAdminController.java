@@ -233,11 +233,12 @@ public class FXMLSysAdminController implements Initializable {
          String salname = lastnameSA.getText();
          String saun = userSA.getText();
          Warehouse w = new Warehouse(SVname.getText());
+         System.out.println(SVname.getText()); 
          String wn = SVname.getText();
          SalesAssociate s = new SalesAssociate(safname,salname,saun,sapw,saemail,wn,w);
          BPD3.accounts.add(s);
          Users.salist.add(s);
-         BPD3.fleet.add(w);
+         BPD3.fleet.addWarehouse(w);
          createSAlabel.setText("New Sales Associate Created!");
          createSAlabel.getText();
      }
