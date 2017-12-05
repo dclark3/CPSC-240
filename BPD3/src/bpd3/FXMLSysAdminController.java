@@ -237,6 +237,7 @@ public class FXMLSysAdminController implements Initializable {
          SalesAssociate s = new SalesAssociate(safname,salname,saun,sapw,saemail,wn,w);
          BPD3.accounts.add(s);
          Users.salist.add(s);
+         BPD3.fleet.add(w);
          createSAlabel.setText("New Sales Associate Created!");
          createSAlabel.getText();
      }
