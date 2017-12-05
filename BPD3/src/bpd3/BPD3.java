@@ -56,16 +56,20 @@ public class BPD3 extends Application {
      
         fleet = new Fleet(f);  
         mainWarehouse = new Warehouse("mainWarehouse");
-        Warehouse van = new Warehouse("van"); 
+        Warehouse van1 = new Warehouse("van");
+        Warehouse van2 = new Warehouse("van");
+        Warehouse van3 = new Warehouse("van");
         fleet.addWarehouse(mainWarehouse);
-        fleet.addWarehouse(van); 
+        fleet.addWarehouse(van1); 
+        fleet.addWarehouse(van2);
+        fleet.addWarehouse(van3);
         
         admin = new SysAdmin("joe", "schmo", "admin", "abc", "email");
         offMan = new OfficeMan("jane", "doe", "office", "abc", "email");
         wareMan = new WarehouseMan("Sonny","Son", "ware", "abc", "email");
-        sa1 = new SalesAssociate("Bob", "Barnes", "sa1", "abc", "email", "whName", van);
-        sa2 = new SalesAssociate("Sandra", "Sandy", "sa2", "abc", "email", "whName", van);
-        sa3 = new SalesAssociate("Drew", "Donald", "sa3", "def", "email", "whName", van);
+        sa1 = new SalesAssociate("Bob", "Barnes", "sa1", "abc", "email", "whName1", van1);
+        sa2 = new SalesAssociate("Sandra", "Sandy", "sa2", "abc", "email", "whName2", van2);
+        sa3 = new SalesAssociate("Drew", "Donald", "sa3", "def", "email", "whName3", van3);
         
         accounts.add(admin);
         accounts.add(offMan);
