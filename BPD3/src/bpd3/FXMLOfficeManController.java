@@ -128,11 +128,11 @@ public class FXMLOfficeManController implements Initializable {
         ArrayList <Inventory> parts = BPD3.mainWarehouse.getInventory();
         String partsToOrder = "";
         for (Inventory p : parts){
-            if (p.getQuantity() <= BPD3.minQuantity+5){
+            if (p.getQuantity() <= 10){
                 partsToOrder = p + "\n" + partsToOrder;
             }
         }
-//        displayTextField.setText(partsToOrder);
+        displayTextField.setText(partsToOrder);
         
     }
     

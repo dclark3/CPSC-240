@@ -33,12 +33,13 @@ public class SalesAssociate extends LoginAccount {
                           String lName,
                           String username, 
                           String password, 
-                          String email, String name, 
+                          String email,
+                          String name,
                           Warehouse wh){
         
         super(fName, lName, username, password, email);
-        this.name=name;
-        this.wh=wh; 
+        this.wh=wh;
+        this.name = name;
         InvoiceFactory invoiceFac = new InvoiceFactory(0); 
         this.invoiceFac = invoiceFac; 
     }
@@ -128,6 +129,11 @@ public class SalesAssociate extends LoginAccount {
      * @returns an invoicefactory
      */
     public static InvoiceFactory getInvoiceFac()
+    {
+        return invoiceFac; 
+    }
+    
+    public InvoiceFactory getFac()
     {
         return invoiceFac; 
     }

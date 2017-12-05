@@ -38,40 +38,33 @@ public class OfficeMan extends LoginAccount {
         return null;
     }
     
-    public String orderParts(){
-        
-        ArrayList <Inventory> parts = BPD3.mainWarehouse.getInventory();
-        String partsToOrder = "";
-        for (Inventory p : parts){
-            if (p.getQuantity() <= BPD3.minQuantity+5){
-                partsToOrder = p + "\n" + partsToOrder;
-            }
-        }
-        return partsToOrder;
-    }
     
     public double getCommission(String startDate, String endDate, String saName) throws ParseException{
         
-       InvoiceFactory inf = BPD3.sa1.getInvoiceFac();
-       ArrayList<Invoice> commission = new ArrayList<>();
-       double total = 0;
+        SalesAssociate sa = Users.findSa(saName);
+        
+        if (sa != null){
        
-        DateFormat df = new SimpleDateFormat("MMM dd yyyy", Locale.ENGLISH);
-        Date sd =  df.parse(startDate); 
-        Date ed = df.parse(endDate);
-       
-       for (Invoice i : inf.getInvList()){
-           if (i.getDate().after(sd) && i.getDate().before(ed)){
-               commission.add(i);
-           }
-       }
-       
-       for (Invoice i : commission){
-           total = total + i.getTotal();
-       }
-       
-       total = total * .15;
-       
-       return total;
+            InvoiceFactory inf = sa.getFac();
+            ArrayList<Invoice> commission = new ArrayList<>();
+            double total = 0;
+
+            DateFormat df = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+            Date sd =  df.parse(startDate); 
+            Date ed = df.parse(endDate);
+
+            for (Invoice i : inf.getInvList()){
+                if (i.getDate().after(sd) && i.getDate().before(ed)){
+                    commission.add(i);
+                }
+            }
+            for (Invoice i : commission){
+                total += i.getTotal();
+            }
+            
+            total = total * .15;
+            return total;
+        }
+        return -1;
     }
 }

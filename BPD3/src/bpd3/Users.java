@@ -17,4 +17,13 @@ public class Users {
     public static ArrayList <OfficeMan> omlist = new ArrayList<OfficeMan>();
     public static ArrayList <WarehouseMan> wmlist = new ArrayList<WarehouseMan>();
     
+    public static SalesAssociate findSa(String name){
+        
+        for (SalesAssociate sa : salist){
+            if (sa.getFullName().equals(name)){
+                return sa;
+            }
+        }
+        return null;
+    }
 }

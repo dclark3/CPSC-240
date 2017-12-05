@@ -29,7 +29,6 @@ public class BPD3 extends Application {
     public static Warehouse mainWarehouse;
     public static Fleet fleet;
     public static ArrayList <LoginAccount> accounts = new ArrayList<>();
-    public static int minQuantity;
     public static Command cmd;
     
     /** starts all the methods for the fx
@@ -78,15 +77,13 @@ public class BPD3 extends Application {
         accounts.add(sa2);
         accounts.add(sa3);
         
-        minQuantity = 5;
         cmd = new Command();
         
-        Inventory b1 = new Inventory("saddle", 12345, 4.99, 2.99, true, 6);
+        Inventory b1 = new Inventory("saddle", 12345, 4.99, 2.99, true, 23784);
         Inventory b2 = new Inventory("peddle", 12343, 14.99, 12.99, false, 9);
         
         mainWarehouse.addPart(b1);
         mainWarehouse.addPart(b2);
-        
         
         launch(args);
     }

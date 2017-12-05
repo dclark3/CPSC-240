@@ -27,6 +27,10 @@ public class Person {
         return this.lastName;
     }
     
+    public String getFullName(){
+        return this.firstName + " " + this.lastName;
+    }
+    
     public String updateFName(String name){
         this.firstName = name;
         return this.firstName;
