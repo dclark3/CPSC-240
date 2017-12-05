@@ -19,7 +19,11 @@ import java.util.Scanner;
  */
 public class FileStuff {
     
-    //this is for making a new warehouse
+    /**
+     * This method is used to construct a new warehouse
+     * @param filename
+     * @return ArrayList<Inventory>
+     */
     public static ArrayList<Inventory> warehouseRead (String filename){
         ArrayList<Inventory> output = new ArrayList<>();
         
@@ -47,8 +51,13 @@ public class FileStuff {
         }
         return output;
     }
-    
-    //this is for reading in and updating inventory
+
+    /**
+     * This method is for updating inventory
+     * @param inventory
+     * @param file
+     * @return String
+     */
     public static String readFile(ArrayList <Inventory> inventory, String file){
         try{
             File fileIn = new File(file);
@@ -92,9 +101,12 @@ public class FileStuff {
             return "File not found";
         }
     }
-    
-    
-    //this is the method to move parts
+
+    /**
+     * This method is for moving parts to different warehouses
+     * @param fileName
+     * @return String 
+     */
     public static String moveParts(String fileName){
         
         try{
@@ -145,6 +157,10 @@ public class FileStuff {
         }
     }
     
+    /**
+     * This method writes the warehouses to a file
+     * @param w 
+     */
     public static void writeWarehouseToFile(Warehouse w){
         try{
             String fileName = w.getFileName();
@@ -163,6 +179,9 @@ public class FileStuff {
         }
     }
     
+    /**
+     * This method writes everything in the program into a file
+     */
     public static void writeEverythingToFile(){
         try{    
             FileWriter file1 = new FileWriter("fleet.txt");

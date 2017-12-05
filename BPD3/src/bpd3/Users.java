@@ -17,6 +17,11 @@ public class Users {
     public static ArrayList <OfficeMan> omlist = new ArrayList<OfficeMan>();
     public static ArrayList <WarehouseMan> wmlist = new ArrayList<WarehouseMan>();
     
+    /**
+     * This method finds a sales associate
+     * @param name
+     * @return SalesAssociate
+     */
     public static SalesAssociate findSa(String name){
         
         for (SalesAssociate sa : salist){
@@ -27,6 +32,11 @@ public class Users {
         return null;
     }
     
+    /**
+     * This method gets a sales assocaite
+     * @param username
+     * @return SalesAssocaite
+     */
     public static SalesAssociate getSa(String username)
     {
         for (SalesAssociate sa : salist){

@@ -18,10 +18,23 @@ import java.util.Locale;
  */
 public class OfficeMan extends LoginAccount {
     
+    /**
+     * This method constructs an officeman
+     * @param fName
+     * @param lName
+     * @param username
+     * @param password
+     * @param email 
+     */
     public OfficeMan(String fName, String lName, String username, String password, String email){
         super(fName, lName, username, password, email);
     }
     
+    /**
+     * This method examines the parts in the mainwarehouse using a string
+     * @param name
+     * @return Inventory
+     */
     public Inventory examinePart(String name){
         Inventory part = BPD3.mainWarehouse.findPart(name);
         if (part!=null){
@@ -30,6 +43,11 @@ public class OfficeMan extends LoginAccount {
         return null;
     }
     
+    /**
+     * This method examins the parts in the mainwarehouse using a num
+     * @param num
+     * @return Inventory
+     */
     public Inventory examinePart(int num){
         Inventory part = BPD3.mainWarehouse.findPart(num);
         if (part!=null){
@@ -38,7 +56,14 @@ public class OfficeMan extends LoginAccount {
         return null;
     }
     
-    
+    /**
+     * This method gets the commission of a sales associate between 2 dates
+     * @param startDate
+     * @param endDate
+     * @param saName
+     * @return double
+     * @throws ParseException 
+     */
     public double getCommission(String startDate, String endDate, String saName) throws ParseException{
         
         SalesAssociate sa = Users.findSa(saName);

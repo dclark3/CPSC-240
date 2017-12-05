@@ -17,12 +17,21 @@ public class InvoiceFactory
     private int invoiceNumber; 
     private static int counter = 0;
     
+    /**
+     * This method constructs an invoice factory
+     * @param invoiceStartNunber 
+     */
     InvoiceFactory (int invoiceStartNunber)
     {
         invoiceArray = new ArrayList<>();  
         invoiceNumber = invoiceStartNunber;
     }
     
+    /**
+     * This method creates a new invoice factory
+     * @param invoiceStartNumber
+     * @return InvoiceFactory
+     */
     public static InvoiceFactory createInvoiceFactory(int invoiceStartNumber)
     {
         if (counter == 0)
@@ -37,8 +46,8 @@ public class InvoiceFactory
     }
     
     /**
-     *
-     * @return 
+     *This method creates a new invoice
+     * @return Invoice
      */
     public Invoice createInvoice()
     {
@@ -46,7 +55,12 @@ public class InvoiceFactory
         invoiceArray.add(invoice);
         return invoice;
     }
-        
+     
+    /**
+     * This method gets a invoice off a number
+     * @param invoiceNum
+     * @return Invoice
+     */
     public Invoice getInvoice (int invoiceNum)
     {
         for (Invoice inv1 : invoiceArray)
@@ -59,6 +73,11 @@ public class InvoiceFactory
         return null;
     } 
     
+    /**
+     * This method gets the invoice off a date
+     * @param date
+     * @return invoice
+     */
     public Invoice getInvoice (String date){
         
         for (Invoice inv1 : invoiceArray)
@@ -71,6 +90,10 @@ public class InvoiceFactory
         return null;       
     }
     
+    /**
+     * This method gets the invoice array of the factory
+     * @return ArrayList<Invoice>
+     */
     public ArrayList<Invoice> getInvList(){
         return invoiceArray;
     }
